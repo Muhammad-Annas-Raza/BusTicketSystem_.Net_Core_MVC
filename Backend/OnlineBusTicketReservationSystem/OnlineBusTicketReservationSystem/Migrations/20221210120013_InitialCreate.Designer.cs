@@ -12,7 +12,7 @@ using OnlineBusTicketReservationSystem.Models;
 namespace OnlineBusTicketReservationSystem.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221210094645_InitialCreate")]
+    [Migration("20221210120013_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<string>("bus_img_3")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("bus_noOfSeats")
+                    b.Property<int?>("bus_noOfSeats")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("bus_organizationDescription")
@@ -108,7 +109,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<DateTime?>("bus_startingTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("bus_ticketPrice")
+                    b.Property<decimal?>("bus_ticketPrice")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
@@ -231,6 +232,12 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("user_id"), 1L, 1);
+
+                    b.Property<bool>("user_approved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("user_emailVerified")
+                        .HasColumnType("bit");
 
                     b.Property<string>("user_email_phone")
                         .IsRequired()

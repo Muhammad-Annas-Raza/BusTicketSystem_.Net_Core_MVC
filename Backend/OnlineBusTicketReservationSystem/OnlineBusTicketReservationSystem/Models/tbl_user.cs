@@ -23,6 +23,9 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? user_email_phone { get; set; }
         [StringLength(150)]
         public string? user_verification_code { get; set; }
+        public bool user_emailVerified { get; set; }
+        public bool user_approved { get; set; }
+
         [StringLength(50)]
         public string? user_role { get; set; }              //<One to One relation> b/c one bus can have one time discounts
 

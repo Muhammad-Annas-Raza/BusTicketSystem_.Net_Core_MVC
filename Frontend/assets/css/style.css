@@ -6,6 +6,13 @@ body {
   color: #444444;
 }
 
+
+
+
+.registrCss{
+  text-align:center;
+  margin:auto 0;
+}
 .bshdw
 {
   box-shadow: 12px 12px 9px 0px rgba(87,81,81,0.8);

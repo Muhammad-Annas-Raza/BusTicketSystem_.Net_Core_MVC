@@ -25,9 +25,9 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? bus_destionation { get; set; }
         //public int? bus_ticketPrice{ get; set; }
         [Precision(18, 2)]
-        public decimal bus_ticketPrice{ get; set; }
+        public decimal? bus_ticketPrice{ get; set; }
         [Required]
-        public int bus_noOfSeats { get; set; }
+        public int? bus_noOfSeats { get; set; }
         [StringLength(50)]
         [Required]
         public string? bus_category{ get; set; }

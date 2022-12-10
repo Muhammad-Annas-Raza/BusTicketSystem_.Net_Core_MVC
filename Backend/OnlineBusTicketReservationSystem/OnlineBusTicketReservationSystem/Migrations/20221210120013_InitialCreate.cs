@@ -19,6 +19,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     user_password = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
                     user_email_phone = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     user_verification_code = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    user_emailVerified = table.Column<bool>(type: "bit", nullable: false),
+                    user_approved = table.Column<bool>(type: "bit", nullable: false),
                     user_role = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
@@ -35,7 +37,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     bus_organizationDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     bus_startingTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     bus_destionation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    bus_ticketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    bus_ticketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
                     bus_noOfSeats = table.Column<int>(type: "int", nullable: false),
                     bus_category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     bus_img_1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
