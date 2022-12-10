@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBusTicketReservationSystem.Models
@@ -13,15 +14,17 @@ namespace OnlineBusTicketReservationSystem.Models
 
 
 
-        public int bookedSeat_customerTicketPrice{ get; set; }
-        public int bookedSeat_customerDiscountPercentage{ get; set; }
-        public int bookedSeat_customerDiscTicketPrice{ get; set; }  
-        //public decimal bookedSeat_customerTicketPrice{ get; set; }
-        //public decimal bookedSeat_customerDiscountPercentage{ get; set; }
-        //public decimal bookedSeat_customerDiscTicketPrice{ get; set; }
-
-
-
+        //public int bookedSeat_customerTicketPrice{ get; set; }
+        //public int bookedSeat_customerDiscountPercentage{ get; set; }
+        //public int bookedSeat_customerDiscTicketPrice{ get; set; }
+        [Precision(18, 2)]
+        public decimal bookedSeat_customerTicketPrice { get; set; }
+        [Precision(18,2)]
+        public decimal bookedSeat_customerDiscountPercentage { get; set; }
+        [Precision(18,2)]
+        public decimal bookedSeat_customerDiscTicketPrice { get; set; }
+        public string? Bookedseat_customerName { get; set; }
+        public int? Bookedseat_customerSeatno { get; set; }
 
         public bool bookedSeat_customerReached{ get; set; }
         [ForeignKey("tbl_bus")]

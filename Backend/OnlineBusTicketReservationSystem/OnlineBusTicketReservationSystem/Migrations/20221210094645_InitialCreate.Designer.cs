@@ -12,7 +12,7 @@ using OnlineBusTicketReservationSystem.Models;
 namespace OnlineBusTicketReservationSystem.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221209232308_InitialCreate")]
+    [Migration("20221210094645_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,20 +32,29 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("bookedSeat_id"), 1L, 1);
 
+                    b.Property<string>("Bookedseat_customerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Bookedseat_customerSeatno")
+                        .HasColumnType("int");
+
                     b.Property<int>("bookedSeat_customerAge")
                         .HasColumnType("int");
 
-                    b.Property<int>("bookedSeat_customerDiscTicketPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("bookedSeat_customerDiscTicketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("bookedSeat_customerDiscountPercentage")
-                        .HasColumnType("int");
+                    b.Property<decimal>("bookedSeat_customerDiscountPercentage")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("bookedSeat_customerReached")
                         .HasColumnType("bit");
 
-                    b.Property<int>("bookedSeat_customerTicketPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("bookedSeat_customerTicketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("fk_bus_id")
                         .HasMaxLength(50)
@@ -74,7 +83,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("bus_destionation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("bus_img_1")
@@ -97,11 +105,12 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<DateTime>("bus_startingTime")
+                    b.Property<DateTime?>("bus_startingTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("bus_ticketPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("bus_ticketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<long>("fk_user_id")
                         .HasColumnType("bigint");
@@ -146,17 +155,21 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("discount_id"), 1L, 1);
 
-                    b.Property<int?>("discount_0_TO_5")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("discount_0_TO_5")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("discount_13_TO_50")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("discount_13_TO_50")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("discount_51")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("discount_51")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("discount_6_TO_12")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("discount_6_TO_12")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("fk_bus_id")
                         .HasMaxLength(50)
@@ -179,6 +192,18 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("sale_id"), 1L, 1);
 
+                    b.Property<string>("Sale_busCategory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sale_busDestination")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sale_busOrganizationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Sale_busStartingTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("fk_bus_id")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -186,8 +211,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<int>("sale_noOfSeatsSale")
                         .HasColumnType("int");
 
-                    b.Property<int>("sale_totalAmountCollectedFromOneBus")
-                        .HasColumnType("int");
+                    b.Property<decimal>("sale_totalAmountCollectedFromOneBus")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("sale_id");
 
@@ -205,9 +231,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("user_id"), 1L, 1);
-
-                    b.Property<long?>("tbl_discountdiscount_id")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("user_email_phone")
                         .IsRequired()
@@ -231,8 +254,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasKey("user_id");
-
-                    b.HasIndex("tbl_discountdiscount_id");
 
                     b.HasIndex("user_email_phone")
                         .IsUnique();
@@ -285,15 +306,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasForeignKey("OnlineBusTicketReservationSystem.Models.tbl_sale", "fk_bus_id");
 
                     b.Navigation("tbl_bus");
-                });
-
-            modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_user", b =>
-                {
-                    b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_discount", "tbl_discount")
-                        .WithMany()
-                        .HasForeignKey("tbl_discountdiscount_id");
-
-                    b.Navigation("tbl_discount");
                 });
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bus", b =>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBusTicketReservationSystem.Models
@@ -19,14 +20,12 @@ namespace OnlineBusTicketReservationSystem.Models
         [StringLength(150)]
         [Required]
         public string? bus_organizationName { get; set; }
-        public string? bus_organizationDescription { get; set; }
-        [Required]
-        public DateTime bus_startingTime{ get; set; }
-        [Required]
+        public string? bus_organizationDescription { get; set; }        
+        public DateTime? bus_startingTime{ get; set; }        
         public string? bus_destionation { get; set; }
-        [Required]
-        public int bus_ticketPrice{ get; set; }
-        //public decimal bus_ticketPrice{ get; set; }
+        //public int? bus_ticketPrice{ get; set; }
+        [Precision(18, 2)]
+        public decimal bus_ticketPrice{ get; set; }
         [Required]
         public int bus_noOfSeats { get; set; }
         [StringLength(50)]

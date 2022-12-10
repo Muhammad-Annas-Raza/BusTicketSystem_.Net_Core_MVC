@@ -28,7 +28,6 @@ namespace OnlineBusTicketReservationSystem.Models
 
         public ICollection<tbl_bus> tbl_bus { get; set; }   //<Many to one relation> b/c many buses can belong to one user
 
-        public virtual tbl_discount? tbl_discount { get; set; } //Navigational Property
 
     }
 }
