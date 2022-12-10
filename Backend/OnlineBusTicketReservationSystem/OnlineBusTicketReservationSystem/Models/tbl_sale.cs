@@ -21,8 +21,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public decimal sale_totalAmountCollectedFromOneBus  { get; set; }
 
         [ForeignKey("tbl_bus")]
-        [StringLength(50)]
-        public string? fk_bus_id { get; set; }      //<One to One Relation> One bus can have One Profit(Sum of all ickets)
+        public long fk_bus_id { get; set; }      //<One to One Relation> One bus can have One Profit(Sum of all ickets)
         public virtual tbl_bus? tbl_bus { get; set; }   //Navigational Property 
 
     }

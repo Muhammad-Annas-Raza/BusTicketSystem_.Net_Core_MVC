@@ -11,9 +11,6 @@ namespace OnlineBusTicketReservationSystem.Models
         public long bookedSeat_id { get; set; }        
         public int bookedSeat_customerAge{ get; set; }
 
-
-
-
         //public int bookedSeat_customerTicketPrice{ get; set; }
         //public int bookedSeat_customerDiscountPercentage{ get; set; }
         //public int bookedSeat_customerDiscTicketPrice{ get; set; }
@@ -28,8 +25,7 @@ namespace OnlineBusTicketReservationSystem.Models
 
         public bool bookedSeat_customerReached{ get; set; }
         [ForeignKey("tbl_bus")]
-        [StringLength(50)]
-        public string? fk_bus_id { get; set; }      //<One to Many Relation> One bus can have many booked seats
+        public long fk_bus_id { get; set; }      //<One to Many Relation> One bus can have many booked seats
         public virtual tbl_bus? tbl_bus { get; set; }   //Navigational Property 
 
     }

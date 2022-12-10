@@ -14,11 +14,10 @@ namespace OnlineBusTicketReservationSystem.Models
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
+        public long bus_id { get; set; }
         [StringLength(50)]
-        public string bus_id { get; set; } = null!;  //Number Plate of Bus
+        public string bus_NumberPlate { get; set; } = null!;  //Number Plate of Bus
         [StringLength(150)]
-        [Required]
         public string? bus_organizationName { get; set; }
         public string? bus_organizationDescription { get; set; }        
         public DateTime? bus_startingTime{ get; set; }        
@@ -26,7 +25,6 @@ namespace OnlineBusTicketReservationSystem.Models
         //public int? bus_ticketPrice{ get; set; }
         [Precision(18, 2)]
         public decimal? bus_ticketPrice{ get; set; }
-        [Required]
         public int? bus_noOfSeats { get; set; }
         [StringLength(50)]
         [Required]

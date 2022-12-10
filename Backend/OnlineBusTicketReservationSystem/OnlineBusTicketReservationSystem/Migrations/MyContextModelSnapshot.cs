@@ -54,9 +54,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("fk_bus_id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<long>("fk_bus_id")
+                        .HasColumnType("bigint");
 
                     b.HasKey("bookedSeat_id");
 
@@ -67,8 +66,14 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bus", b =>
                 {
-                    b.Property<string>("bus_id")
+                    b.Property<long>("bus_id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("bus_id"), 1L, 1);
+
+                    b.Property<string>("bus_NumberPlate")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -93,14 +98,12 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("bus_noOfSeats")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("bus_organizationDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("bus_organizationName")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -135,9 +138,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<int>("busSeats_noOfSeats")
                         .HasColumnType("int");
 
-                    b.Property<string>("fk_bus_id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<long>("fk_bus_id")
+                        .HasColumnType("bigint");
 
                     b.HasKey("busSeats_id");
 
@@ -170,15 +172,13 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("fk_bus_id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<long>("fk_bus_id")
+                        .HasColumnType("bigint");
 
                     b.HasKey("discount_id");
 
                     b.HasIndex("fk_bus_id")
-                        .IsUnique()
-                        .HasFilter("[fk_bus_id] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("tbl_discount");
                 });
@@ -203,9 +203,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<DateTime>("Sale_busStartingTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("fk_bus_id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<long>("fk_bus_id")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("sale_noOfSeatsSale")
                         .HasColumnType("int");
@@ -217,8 +216,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.HasKey("sale_id");
 
                     b.HasIndex("fk_bus_id")
-                        .IsUnique()
-                        .HasFilter("[fk_bus_id] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("tbl_sale");
                 });
@@ -270,7 +268,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
                         .WithMany("tbl_bookedSeat")
-                        .HasForeignKey("fk_bus_id");
+                        .HasForeignKey("fk_bus_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("tbl_bus");
                 });
@@ -290,7 +290,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
                         .WithMany("tbl_busSeats")
-                        .HasForeignKey("fk_bus_id");
+                        .HasForeignKey("fk_bus_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("tbl_bus");
                 });
@@ -299,7 +301,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
                         .WithMany()
-                        .HasForeignKey("fk_bus_id");
+                        .HasForeignKey("fk_bus_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("tbl_bus");
                 });
@@ -308,7 +312,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
                         .WithOne("tbl_sale")
-                        .HasForeignKey("OnlineBusTicketReservationSystem.Models.tbl_sale", "fk_bus_id");
+                        .HasForeignKey("OnlineBusTicketReservationSystem.Models.tbl_sale", "fk_bus_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("tbl_bus");
                 });
