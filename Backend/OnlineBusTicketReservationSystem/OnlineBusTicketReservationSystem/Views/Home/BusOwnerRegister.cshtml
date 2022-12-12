@@ -1,4 +1,5 @@
-﻿@{
+﻿@model tbl_user
+@{
     Layout = null;
 }
 
@@ -70,36 +71,45 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" method="post"asp-action="BusOwnerRegister" asp-controller="Home">
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <label asp-for="user_name" class="form-label">Your Name</label>
+                      <input asp-for="user_name" type="text" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <label asp-for="user_email_phone" class="form-label">Your Email</label>
+                      <input type="email" asp-for="user_email_phone" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
                     <div class="col-12">
-                        <label for="yourName" class="form-label">Bus Registration Plate Number </label>
-                        <input type="text" placeholder="Example : ABC-1234" name="name" class="form-control" id="yourName" required>
+                        <label asp-for="bus_NumberPlate" class="form-label">Bus Registration Plate Number </label>
+                        <input type="text" placeholder="Example : ABC-1234" asp-for="bus_NumberPlate" class="form-control" id="yourName" required>
                         <div class="invalid-feedback">Please, enter your name!</div>
                       </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control mypas" id="yourPassword" required>
+                      <label asp-for="user_password" class="form-label">Password</label>
+                      <input type="password" asp-for="user_password" class="form-control mypas" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Confirm Password</label>
-                      <input type="password" name="password" class="form-control mypas" id="yourPassword" required>
+                      <label asp-for="user_confirmPassword" class="form-label">Confirm Password</label>
+                      <input type="password" asp-for="user_confirmPassword" class="form-control mypas" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
+
+
+
+
+
+
+
+
+
 
                     <div class="col-12">
                         <div class="form-check">
@@ -116,6 +126,11 @@
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a asp-action="Login" asp-controller="Home" class="text-primary">Log in</a></p>
                     </div>
+                       <div class="col-12">
+                                        <div class="text-danger text-center">
+                                           <b>@TempData["msg2"]</b>
+                                        </div> 
+                                    </div>
                   </form>
 
                 </div>

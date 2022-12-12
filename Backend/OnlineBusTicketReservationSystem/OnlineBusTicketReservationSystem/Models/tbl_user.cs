@@ -25,9 +25,13 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? user_verification_code { get; set; }
         public bool user_emailVerified { get; set; }
         public bool user_approved { get; set; }
+        [NotMapped]
+        public string? bus_NumberPlate { get; set; }  //Number Plate of Bus
+        [NotMapped]
+        public string? user_confirmPassword { get; set; } 
 
         [StringLength(50)]
-        public string? user_role { get; set; }              //<One to One relation> b/c one bus can have one time discounts
+        public string? user_role { get; set; }               
 
         public ICollection<tbl_bus> tbl_bus { get; set; }   //<Many to one relation> b/c many buses can belong to one user
 

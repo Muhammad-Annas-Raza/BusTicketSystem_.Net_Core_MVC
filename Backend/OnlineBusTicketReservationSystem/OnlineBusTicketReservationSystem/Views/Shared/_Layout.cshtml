@@ -1,19 +1,6 @@
 ﻿
-@inject IHttpContextAccessor context
 
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OnlineBusTicketReservationSystem</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OnlineBusTicketReservationSystem.styles.css" asp-append-version="true" />
-</head>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +58,7 @@
  @*=======================*@
                 @{
                 
-                if (context.HttpContext.Session.GetString("Role") == "ABC")                
+                if (context.HttpContext.Session.GetString("Role") == "User")                
                     {
         <li class="dropdown" style="list-style-type: none;"><a href="#"><span>Hi, @context.HttpContext.Session.GetString("Name")</span> <i class="bi bi-chevron-down"></i></a>
         <ul>

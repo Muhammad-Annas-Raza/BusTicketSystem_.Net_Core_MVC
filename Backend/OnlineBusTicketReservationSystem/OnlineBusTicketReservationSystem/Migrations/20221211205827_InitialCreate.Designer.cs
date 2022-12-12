@@ -12,7 +12,7 @@ using OnlineBusTicketReservationSystem.Models;
 namespace OnlineBusTicketReservationSystem.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221210130825_InitialCreate")]
+    [Migration("20221211205827_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

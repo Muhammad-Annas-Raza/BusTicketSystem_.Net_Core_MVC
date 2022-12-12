@@ -1,6 +1,5 @@
 ﻿@model tbl_user
 
-
 @{
     ViewData["Title"] = "Login";
     Layout = null;
@@ -37,25 +36,15 @@
   <!-- Template Main CSS File -->
   <link href="~/assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
-
- 
     <div class="container-fluid">
         <div class="container">
-
-
-
             <div class="row section register min-vh-100 align-items-center justify-content-center py-4">
-
                 <div class="col-lg py-4 d-lg-block d-none">
                     <img class="img-fluid" src="~/assets/img/mainlogin.png" />
                 </div>
-
-                <div class="col-lg-5 col-md-10 d-flex flex-column">
-                   
-                    <div class="d-flex justify-content-center py-4">
-                        
+                <div class="col-lg-5 col-md-10 d-flex flex-column">                   
+                    <div class="d-flex justify-content-center py-4">                        
                             <a asp-action="Index" asp-controller="Home">
                                 <div class="row">
                                     <div class="col-4">
@@ -66,10 +55,8 @@
                                     </div>
                                 </div>                                              
                             </a>
-
                     </div>
                     <div class="container">
-
                         <!-- End Logo -->
                         <div class="card mb-3 bx_shadw">
                             <div class="card-body">
@@ -102,8 +89,8 @@
                                             Html.ValidationMessageFor(model => model.user_name, "",
                                            new { class = "text-danger" }) -->
 
-                                           <input asp-for="user_name" type="text" class="form-control" id="" placeholder="name@example.com"> 
-                                            <label class="text-muted"> &nbsp; User name</label>
+                                           <input asp-for="user_email_phone" type="text" class="form-control" id="" placeholder="name@example.com"> 
+                                            <label class="text-muted"> &nbsp; Email or phone</label>
                                         </div>
                                     </div>
                                     
@@ -147,7 +134,7 @@
                                         <div class="text-danger text-center">
                                            <b>@TempData["msg1"]</b>
                                         </div> 
-                                    </div>
+                                    </div>                                  
                                 <!-- } -->
 
 

@@ -28,6 +28,8 @@ namespace OnlineBusTicketReservationSystem.Services
 
             public static string? Encrypt_password(this string password)
             {
+            try
+            {
                 if (password == null)
                 {
                     return null;
@@ -41,6 +43,8 @@ namespace OnlineBusTicketReservationSystem.Services
 
                     return encrypt_password;
                 }
+            }
+            catch (Exception) { return null; }
 
             }
 
@@ -67,7 +71,7 @@ namespace OnlineBusTicketReservationSystem.Services
                 catch (Exception) { }
             }
 
-            public static void Send_emailApproved(this string email)
+            public static void Send_WelcomeEmail(this string email)
             {
                 try
                 {
@@ -75,7 +79,7 @@ namespace OnlineBusTicketReservationSystem.Services
                     mail.To.Add(email);
                     mail.From = new MailAddress("pointofsale15@gmail.com");
                     mail.Subject = "Welcome to SRC!!!";
-                    mail.Body = "<h3><span style=\"color:green;\">Congratulations!!!</span><br />you have successfully approved by admin</h3>";
+                    mail.Body = "<h3><span style=\"color:green;\">Congratulations!!!</span><br />you have successfully registered your account</h3>";
                     mail.IsBodyHtml = true;
 
                     SmtpClient smtp = new SmtpClient();

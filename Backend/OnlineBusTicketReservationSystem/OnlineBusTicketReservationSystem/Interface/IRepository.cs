@@ -1,4 +1,6 @@
-﻿namespace OnlineBusTicketReservationSystem.Interface
+﻿using OnlineBusTicketReservationSystem.Models;
+
+namespace OnlineBusTicketReservationSystem.Interface
 {
      
         public interface IRepository<T> where T : class
@@ -9,6 +11,8 @@
             Task<int> Update(T row);
             Task<int> Delete(long id);
             Task<int> SaveMyChanges();
+            Task<tbl_user> ChkCredentials(string usrNm, string pwd);
+            Task<string> VerifyCode(long id, string VerificationCode);
             //tbl_user? LoginCheck(tbl_user u);
             //Task<int> VerifyEmail(long user_id, string code);
             //Task<object> ProdCateinnerjoin(long fk_store_id);

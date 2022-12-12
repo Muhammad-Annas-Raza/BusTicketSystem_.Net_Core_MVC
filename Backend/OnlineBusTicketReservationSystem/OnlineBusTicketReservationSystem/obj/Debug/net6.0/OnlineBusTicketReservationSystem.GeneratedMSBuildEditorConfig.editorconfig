@@ -15,8 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/BusOwner/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzT3duZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/BusOwner/Waiting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzT3duZXJcV2FpdGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/BusOwnerRegister.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCdXNPd25lclJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/emailVerification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxlbWFpbFZlcmlmaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/Feedback.cshtml]
