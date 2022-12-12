@@ -260,3 +260,4 @@ E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\Online
 E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem\bin\Debug\net6.0\bundleconfig.json

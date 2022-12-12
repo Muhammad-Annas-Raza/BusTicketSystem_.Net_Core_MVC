@@ -88,7 +88,8 @@ namespace OnlineBusTicketReservationSystem.Controllers
                     HttpContext.Session.SetString("UsrId", row.user_id.ToString());
                     List<Claim> claims = new List<Claim>()
                 {
-                 new Claim(ClaimTypes.NameIdentifier,u.user_name?? "ABC Name")
+                   new Claim(ClaimTypes.NameIdentifier,row.user_name?? "ABC Name"),
+                   new Claim(ClaimTypes.Role,row.user_role?? "ABC Role")
                 };
 
                     ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
@@ -135,14 +136,14 @@ namespace OnlineBusTicketReservationSystem.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Feedback()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         [HttpPost]
         public IActionResult Feedback(tbl_feedback f)
@@ -253,7 +254,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> emailVerification(string Verification_code)
         {
-            long id = long.Parse(HttpContext.Session.GetString("UsrId"));
+            long id = long.Parse(HttpContext.Session.GetString("UsrId")??"0");
             string res =await Tbl_user.VerifyCode(id,Verification_code);
             if (res == "true")
             {
