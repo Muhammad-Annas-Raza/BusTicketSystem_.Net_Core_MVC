@@ -47,21 +47,29 @@ namespace OnlineBusTicketReservationSystem.Controllers
         {
             List<tbl_user> rows = await Tbl_user.GetAllApprovedBusOwners();
             return View(rows);
+
         }
-        public async Task<IActionResult> ApproveBusOwner(long id)
+        public async Task<IActionResult> ApproveBusOwner(long id)   //Using Ajax With .Net 6.0
         {
             await Tbl_user.ApproveBusOwner(id);
-            return RedirectToAction("Index", "SuperAdmin");
+            //return RedirectToAction("Index", "SuperAdmin");
+            List<tbl_user> rows = await Tbl_user.GetAllUnApprovedBusOwners();
+            return PartialView("_Index", rows);
         }
-        public async Task<IActionResult> DeleteBusOwner(long id)
+
+
+
+        public async Task<IActionResult> DeleteBusOwner(long id)    //Using Ajax With .Net 6.0
         {
             await Tbl_user.Delete(id);
-            return RedirectToAction("Index", "SuperAdmin");
+            List<tbl_user> rows = await Tbl_user.GetAllUnApprovedBusOwners();
+            return PartialView("_Index", rows);
         }
         public async Task<IActionResult> DeleteBusOwner2(long id)
         {
             await Tbl_user.Delete(id);
-            return RedirectToAction("ViewBusOwners", "SuperAdmin");
+            List<tbl_user> rows = await Tbl_user.GetAllApprovedBusOwners();
+            return PartialView("_ViewBusOwners", rows);
         }
 
       

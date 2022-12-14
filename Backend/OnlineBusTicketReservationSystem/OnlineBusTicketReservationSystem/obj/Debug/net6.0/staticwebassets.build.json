@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/nEiyhMNLKBkbBubBLt6IN7kZeGLWRRcexeAyMYrd88=",
+  "Hash": "Wpdq0dguEGfj6QwHqp8Ylc+LD1M+Bqy6gDkrjtO1Ub4=",
   "Source": "OnlineBusTicketReservationSystem",
   "BasePath": "_content/OnlineBusTicketReservationSystem",
   "Mode": "Default",
@@ -8855,6 +8855,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",

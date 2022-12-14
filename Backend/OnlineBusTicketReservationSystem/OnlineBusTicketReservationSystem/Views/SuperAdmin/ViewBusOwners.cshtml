@@ -38,50 +38,10 @@
 
       <br>
       
-    
+    <div id="update_2">
       <!-- Bordered Table -->
-      <table id="exam" class="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <!-- <th scope="col" class="text-center table-active">User id</th> -->
-            <th scope="col"  class="text-center table-dark">Serial no.</th>
-            <th scope="col" class="text-center table-dark">User Name</th>
-            <th scope="col" class="text-center table-dark">User Email</th>
-            <th scope="col" class="text-center table-dark">Role</th>
-            <th scope="col" class="text-center table-dark">Organization Name</th>
-            <th scope="col" class="text-center table-dark">Registration Time</th>
-            <th scope="col" class="text-center table-dark">Delete User</th>
-          </tr>
-        </thead>
-        <tbody>
-@{
-           var j = 1;
-
-
- foreach (tbl_user i in Model)
-           {
-           <tr class="xyz">
-           <td class="text-center"><b>@j</b></td>             
-           <td class="text-center Usr_name">@i.user_name</td>
-           <td class="text-center usr_email">@i.user_email_phone</td>
-           <td class="text-center">@i.user_role</td>
-           <td class="text-center org_name">@i.organization_name</td>                                      
-           <td class="text-center">@i.Created_at</td>           
-           <th scope="row" class="text-center">
-           <a class="btn btn-danger" style="font-size: 20px;" 
-           asp-controller="SuperAdmin" 
-           asp-action="DeleteBusOwner2"
-           asp-route-id="@i.user_id"><i class='bx bx-trash'></i></a>
-           </th>   
-         </tr>
-         j++;
-    }
-
-
-     }
-        </tbody>
-      </table>
-      <!-- End Bordered Table -->
+     <partial name="_ViewBusOwners" model="Model"/>
+      </div>
      </div>
 </div>
 </section>
