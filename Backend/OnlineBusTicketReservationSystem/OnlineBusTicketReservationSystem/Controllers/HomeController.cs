@@ -81,7 +81,11 @@ namespace OnlineBusTicketReservationSystem.Controllers
                     HttpContext.Session.SetString("UsrId", row.user_id.ToString());
                     return RedirectToAction("emailVerification", "Home");
                 }
-                else
+                else if (row.user_approved == false)
+                {
+                    return RedirectToAction("Waiting", "BusOwner");
+                }
+                else 
                 {
                     HttpContext.Session.SetString("Name", row.user_name ?? "Nothing");
                     HttpContext.Session.SetString("Role", row.user_role ?? "Nothing");
@@ -165,15 +169,16 @@ namespace OnlineBusTicketReservationSystem.Controllers
             if (u1.user_password != null && u1.user_password == u1.user_confirmPassword)
             {
                 //u1.user_password.Encrypt_password();
-                if (u1.bus_NumberPlate != null)
+                if (u1.organization_name != null)
                 {
-                    tbl_bus b = new tbl_bus() { bus_NumberPlate = u1.bus_NumberPlate };
+                    tbl_bus b = new tbl_bus() { bus_NumberPlate = u1.organization_name };
                     string code = DateTime.Now.ToString("fffffff");
                     u1.user_password = u1.user_password.Encrypt_password();
                     u1.user_verification_code = code;
                     u1.user_emailVerified = false;
                     u1.user_approved = false;
                     u1.user_role = "Bus Owner";
+                    u1.Created_at = DateTime.Now;
                    
                         if (u1.user_email_phone != null)
                         {

@@ -24,6 +24,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public int? Bookedseat_customerSeatno { get; set; }
 
         public bool bookedSeat_customerReached{ get; set; }
+        public DateTime Created_at { get; set; }
         [ForeignKey("tbl_bus")]
         public long fk_bus_id { get; set; }      //<One to Many Relation> One bus can have many booked seats
         public virtual tbl_bus? tbl_bus { get; set; }   //Navigational Property 

@@ -96,7 +96,11 @@
             </ul> 
                     </li>
                 }
-                else if (context.HttpContext.Session.GetString("Role") == null) 
+                //else if (context.HttpContext.Session.GetString("Role") == null) 
+                //{
+                //  <li><a asp-action="Login" asp-controller="Home">Sign in&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;Register ?</a></li>     
+                //}
+                else 
                 {
                   <li><a asp-action="Login" asp-controller="Home">Sign in&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;Register ?</a></li>     
                 }
@@ -279,9 +283,9 @@
   <script src="~/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Main JS File -->
+  <script src="~/assets/js/jQuery.js"></script>
   <script src="~/assets/js/main.js"></script>
   <script src="~/assets/js/repeating.js"></script>
-  <script src="~/assets/js/jQuery.js"></script>
   <script src="~/assets/js/one.js"></script>
 
 </body>

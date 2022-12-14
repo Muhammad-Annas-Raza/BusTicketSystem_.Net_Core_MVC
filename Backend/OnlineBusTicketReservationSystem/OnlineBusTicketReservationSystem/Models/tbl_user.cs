@@ -25,13 +25,18 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? user_verification_code { get; set; }
         public bool user_emailVerified { get; set; }
         public bool user_approved { get; set; }
-        [NotMapped]
-        public string? bus_NumberPlate { get; set; }  //Number Plate of Bus
+        public string? organization_name { get; set; } = null!; //For Bus Users
+        public string? organization_description { get; set; }//For Bus Users
+        [Column(TypeName = "text")]
+        public string? organization_logo { get; set; }//For Bus Users
+        [StringLength(150)]
+        public string? bus_NumberPlateForConductor { get; set; }
         [NotMapped]
         public string? user_confirmPassword { get; set; } 
 
         [StringLength(50)]
-        public string? user_role { get; set; }               
+        public string? user_role { get; set; }
+        public DateTime Created_at { get; set; }
 
         public ICollection<tbl_bus> tbl_bus { get; set; }   //<Many to one relation> b/c many buses can belong to one user
 

@@ -24,7 +24,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public decimal? discount_13_TO_50 { get; set; }
         [Precision(18,2)]
         public decimal? discount_51 { get; set; }
-
+        public DateTime Created_at { get; set; }
         [ForeignKey("tbl_bus")]
         public long fk_bus_id{ get; set; }
         public virtual tbl_bus? tbl_bus { get; set; }   //Navigational Property  

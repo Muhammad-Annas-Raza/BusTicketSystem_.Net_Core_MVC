@@ -11,6 +11,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         public IActionResult Waiting()
         {
             return View();

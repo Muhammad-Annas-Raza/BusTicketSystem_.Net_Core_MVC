@@ -144,6 +144,30 @@ namespace OnlineBusTicketReservationSystem.Services
             }
             
         }
+        public async Task<List<tbl_user>> GetAllUnApprovedBusOwners()
+        {
+            List<tbl_user> rows = await db_context.tbl_user.Where(m => m.user_role == "Bus Owner" && m.user_approved == false).ToListAsync();
+            return rows;
+        }
+        public async Task<List<tbl_user>> GetAllApprovedBusOwners()
+        {
+            List<tbl_user> rows = await db_context.tbl_user.Where(m => m.user_role == "Bus Owner" && m.user_approved == true).ToListAsync();
+            return rows;
+        }
+        public async Task<int> ApproveBusOwner(long id)
+        {
+            tbl_user? row = await db_context.tbl_user.FindAsync(id);
+            if (row != null)
+            {
+                row.user_approved = true;
+                db_context.Entry(row).State = EntityState.Modified;
+                flag = await db_context.SaveChangesAsync();
+
+                return flag > 0 ? flag : -1;
+            }
+            return -1;
+        }
+
 
     }
 }

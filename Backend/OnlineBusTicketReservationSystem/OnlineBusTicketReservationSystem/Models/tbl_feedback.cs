@@ -13,5 +13,6 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? feedback_subject{ get; set; }
         [Column(TypeName = "text")]
         public string? feedback_Message{ get; set; }
+        public DateTime Created_at { get; set; }
     }
 }

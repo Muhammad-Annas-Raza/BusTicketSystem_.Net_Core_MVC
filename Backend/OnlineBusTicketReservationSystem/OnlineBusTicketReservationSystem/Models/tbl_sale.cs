@@ -19,6 +19,7 @@ namespace OnlineBusTicketReservationSystem.Models
         //public int sale_totalAmountCollectedFromOneBus  { get; set; }
         [Precision(18, 2)]
         public decimal sale_totalAmountCollectedFromOneBus  { get; set; }
+        public DateTime Created_at { get; set; }
 
         [ForeignKey("tbl_bus")]
         public long fk_bus_id { get; set; }      //<One to One Relation> One bus can have One Profit(Sum of all ickets)

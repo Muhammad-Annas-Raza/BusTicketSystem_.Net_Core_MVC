@@ -36,6 +36,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.Property<int?>("Bookedseat_customerSeatno")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("bookedSeat_customerAge")
                         .HasColumnType("int");
 
@@ -72,6 +75,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("bus_id"), 1L, 1);
 
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("bus_NumberPlate")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -85,27 +91,11 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("bus_destionation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("bus_img_1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("bus_img_2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("bus_img_3")
+                    b.Property<string>("bus_destination")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("bus_noOfSeats")
                         .HasColumnType("int");
-
-                    b.Property<string>("bus_organizationDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("bus_organizationName")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
 
                     b.Property<DateTime?>("bus_startingTime")
                         .HasColumnType("datetime2");
@@ -132,6 +122,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("busSeats_id"), 1L, 1);
 
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("busSeats_isBooked")
                         .HasColumnType("bit");
 
@@ -155,6 +148,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("discount_id"), 1L, 1);
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal?>("discount_0_TO_5")
                         .HasPrecision(18, 2)
@@ -183,6 +179,34 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     b.ToTable("tbl_discount");
                 });
 
+            modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_feedback", b =>
+                {
+                    b.Property<long>("feedback_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("feedback_id"), 1L, 1);
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("feedback_Message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("feedback_subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("feedback_useremail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("feedback_username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("feedback_id");
+
+                    b.ToTable("tbl_feedback");
+                });
+
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_sale", b =>
                 {
                     b.Property<long>("sale_id")
@@ -190,6 +214,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("sale_id"), 1L, 1);
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Sale_busCategory")
                         .HasColumnType("nvarchar(max)");
@@ -228,6 +255,22 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("user_id"), 1L, 1);
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("bus_NumberPlateForConductor")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("organization_description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("organization_logo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("organization_name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("user_approved")
                         .HasColumnType("bit");
