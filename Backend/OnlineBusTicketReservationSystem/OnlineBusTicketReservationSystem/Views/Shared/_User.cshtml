@@ -52,7 +52,7 @@
             <img class="logo hide2" height="100" style="margin-left: 35px !important; " src="~/assets/img/logo1.png">
     
             <li><a asp-action="Index" asp-controller="Home">Contact</a></li>
-            <li><a class="nav-link scrollto active" href="#">Feedback</a></li>  
+            <li><a class="nav-link scrollto" asp-action="Feedback" asp-controller="Home">Feedback</a></li>  
            
             
              @{
@@ -64,7 +64,7 @@
               <li> <a href="#"><p class="h6" ><b>@context.HttpContext.Session.GetString("Name")</b></p></a></li>               
               <hr class="style8">
               <li>
-                <a href="#">  <div class="text-left">
+                <a asp-action="Profile" asp-controller="SuperAdmin">  <div class="text-left">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
                 </div></a>
@@ -156,7 +156,7 @@
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Services</a></li>
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Contact</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Feedback</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="Feedback" asp-controller="Home">Feedback</a></li>
           </ul>
         </div>
 
@@ -205,10 +205,20 @@
   <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="~/assets/vendor/php-email-form/validate.js"></script>
+ 
+  
+  <!-- Keep Script files in this order is Must-->
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<!-- Keep Script files in this order is Must-->
 
-  <!--  Main JS File -->
-  <script src="~/assets/js/jQuery.js"></script>
+
+
+
   <script src="~/assets/js/main.js"></script>
+  <script src="~/assets/js/one.js"></script>
 
 </body>
 

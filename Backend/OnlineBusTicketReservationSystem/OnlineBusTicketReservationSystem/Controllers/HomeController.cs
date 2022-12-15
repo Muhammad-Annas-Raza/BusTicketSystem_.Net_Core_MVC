@@ -136,6 +136,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
         public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Remove("Role");
+            HttpContext.Session.Clear();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index","Home");
         }

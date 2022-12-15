@@ -85,7 +85,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" asp-action="Profile" asp-controller="SuperAdmin">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -192,22 +192,15 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="~/BusOwnerassets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/chart.js/chart.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/echarts/echarts.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/quill/quill.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="~/BusOwnerassets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="~/BusOwnerassets/vendor/php-email-form/validate.js"></script>
+<script src="~/BusOwnerassets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
-  
-<!-- Jquery Link -->
-<script src="~/BusOwnerassets/js/jquery.js"></script>
+<!-- Keep Script files in this order is Must-->
 
-
-  <!-- Template Main JS File -->
+  <!-- Main JS File -->
   <script src="~/BusOwnerassets/js/main.js"></script>
 
 </body>
