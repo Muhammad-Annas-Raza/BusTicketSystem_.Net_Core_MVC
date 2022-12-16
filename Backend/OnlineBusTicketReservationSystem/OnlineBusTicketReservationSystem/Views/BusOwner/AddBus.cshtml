@@ -1,0 +1,107 @@
+﻿@model tbl_bus
+
+@{
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+
+ 
+
+
+  <div class="pagetitle">
+    <h1>Add Bus</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="BusOwner">Home</a></li>
+        <li class="breadcrumb-item">Add Bus</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+      <form asp-action="AddBus" asp-controller="BusOwner" method="post">
+  <section class="section">  
+  <div class="card">
+    <div class="card-body">
+     
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Number Plate</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="text" class="form-control" asp-for="bus_NumberPlate">
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Ticket Price</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control" asp-for="bus_ticketPrice">
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus No of Seats</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control" asp-for="bus_noOfSeats">
+                  </div>
+              </div>
+
+                <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Category</b></label>
+                  <div class="col-md-8 col-lg-9">
+                     <select asp-for="bus_category" class="form-select">
+                          <option value="" >-- Select Bus Type --</option>
+                          <option value="Express" >Express</option>
+                          <option value="Luxury" >Luxury</option>
+                          <option value="Volvo (A/C)" >Volvo (A/C)</option>
+                          <option value="Volvo (Non A/C)" >Volvo (Non A/C)</option>
+                      </select>
+
+
+                  </div>
+              </div>
+ 
+
+      <button  type="submit" class="button" style="font-size: 20px;"> <i class='bx bx-plus'><span>Add</span></i></button>
+      <!-- End Bordered Table -->
+
+      <div class="text-success h3 p-3">@TempData["msg6"]</div>
+      <div class="text-danger h3 p-3">@TempData["msg7"]</div>      
+     </div>
+</div>
+
+</section>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

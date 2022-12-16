@@ -1,0 +1,61 @@
+﻿@model IEnumerable<tbl_discount>
+@{
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+
+
+  <div class="pagetitle">
+    <h1>View Conductors</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="BusOwner">Home</a></li>
+        <li class="breadcrumb-item">View</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="form-outline">
+          <input style="line-height: 18px;border: 1px solid grey;" id="id" onkeyup="srch()" class="form-control mt-5" placeholder="Search By Bus Number" />
+        </div>
+        <button type="button" class="btn btn-primary h-25 mt-5">
+          <i class="bx bx-search"></i>
+        </button>
+        </div>
+      <br>      
+    <div id="update_7">
+      <!-- Bordered Table -->
+    <partial name="_ViewDiscount" model="Model"/> 
+      <!-- End Bordered Table -->
+      </div>
+     </div>
+</div>
+</section> 
+<script>     
+  function srch(){
+    let filter = document.getElementById('id').value.toUpperCase();
+    let myTable = document.getElementById('exam');
+    let whole_table = document.querySelectorAll('.xyz');
+    
+    let tr = myTable.getElementsByClassName("Usr_name")
+
+    for(var i=0; i<tr.length; i++) {
+      let td = tr[i].textContent || td.innerHTML;
+   
+    if(td) {
+            if(td.toUpperCase().indexOf(filter) > -1){
+               console.log(whole_table[i].style.display = "")
+            }else{
+              whole_table[i].style.display = "none"
+            }
+          }
+        }
+      }    
+</script>
+

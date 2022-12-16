@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBusTicketReservationSystem.Models
 {
+    [Index(nameof(bus_NumberPlate), IsUnique = true)]
     public class tbl_bus
     {
 
@@ -55,6 +56,7 @@ namespace OnlineBusTicketReservationSystem.Models
         // <One to One Relation> One bus can have One Revenue
         // </summary>  
         public virtual tbl_sale? tbl_sale { get; set; }
+    
 
     }
 }

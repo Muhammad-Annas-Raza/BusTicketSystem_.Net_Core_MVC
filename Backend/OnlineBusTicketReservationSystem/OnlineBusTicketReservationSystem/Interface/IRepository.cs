@@ -15,7 +15,11 @@ namespace OnlineBusTicketReservationSystem.Interface
             Task<string> VerifyCode(long id, string VerificationCode);
             Task<List<tbl_user>> GetAllUnApprovedBusOwners();
             Task<List<tbl_user>> GetAllApprovedBusOwners();
+            Task<List<tbl_user>> GetAllConductors();
             Task<int> ApproveBusOwner(long id);
+        Task<List<tbl_bus>> GetBusesfk_user_id(long fk_user_id);
+
+        Task<List<tbl_discount>> GetDiscountInnerJoin();
         //tbl_user? LoginCheck(tbl_user u);
         //Task<int> VerifyEmail(long user_id, string code);
         //Task<object> ProdCateinnerjoin(long fk_store_id);

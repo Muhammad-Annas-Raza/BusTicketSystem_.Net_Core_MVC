@@ -149,6 +149,11 @@ namespace OnlineBusTicketReservationSystem.Services
             List<tbl_user> rows = await db_context.tbl_user.Where(m => m.user_role == "Bus Owner" && m.user_approved == false).ToListAsync();
             return rows;
         }
+        public async Task<List<tbl_user>> GetAllConductors()
+        {
+            List<tbl_user> rows = await db_context.tbl_user.Where(m => m.user_role == "Conductor").ToListAsync();
+            return rows;
+        }
         public async Task<List<tbl_user>> GetAllApprovedBusOwners()
         {
             List<tbl_user> rows = await db_context.tbl_user.Where(m => m.user_role == "Bus Owner" && m.user_approved == true).ToListAsync();
@@ -167,6 +172,55 @@ namespace OnlineBusTicketReservationSystem.Services
             }
             return -1;
         }
+        public async Task<List<tbl_bus>> GetBusesfk_user_id(long fk_user_id)
+        {
+            List<tbl_bus> rows = await db_context.tbl_bus.Where(m => m.fk_user_id == fk_user_id).ToListAsync();
+            return rows;
+        }
+
+
+        public async Task<List<tbl_discount>> GetDiscountInnerJoin()
+        {
+
+           var xyz =  await (from a in db_context.tbl_bus
+            join b in db_context.tbl_discount
+            on a.bus_id equals b.fk_bus_id
+
+            select new
+            {
+                discount_id = b.discount_id,
+                discount_0_TO_5 = b.discount_0_TO_5,
+                discount_6_TO_12   = b.discount_6_TO_12,          
+                discount_13_TO_50  = b.discount_13_TO_50,           
+                discount_51  = b.discount_51,
+                Created_at  = b.Created_at,
+                fk_bus_id  = b.fk_bus_id,
+                bus_number = a.bus_NumberPlate
+                 
+            }).ToListAsync();
+
+            List<tbl_discount> lst = new List<tbl_discount>();
+            foreach (var item in xyz)
+            {
+                lst.Add(new tbl_discount()
+                {
+                    discount_id = item.discount_id,
+                    discount_0_TO_5=item.discount_0_TO_5,
+                    discount_6_TO_12=item.discount_6_TO_12,
+                    discount_13_TO_50=item.discount_13_TO_50,
+                    discount_51=item.discount_51,
+                    Created_at=item.Created_at,
+                    fk_bus_id = item.fk_bus_id,
+                    bus_number = item.bus_number
+                });
+            }
+
+            return lst;
+            
+        }
+
+
+
 
 
     }
