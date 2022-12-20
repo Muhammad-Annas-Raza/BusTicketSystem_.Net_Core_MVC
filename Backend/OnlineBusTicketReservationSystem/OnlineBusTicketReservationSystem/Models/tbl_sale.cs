@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineBusTicketReservationSystem.Models
 {
     public class tbl_sale
-    {
+    { 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long sale_id { get; set; }

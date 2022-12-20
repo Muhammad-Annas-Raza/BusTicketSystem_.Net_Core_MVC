@@ -12,7 +12,7 @@ using OnlineBusTicketReservationSystem.Models;
 namespace OnlineBusTicketReservationSystem.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221213121420_InitialCreate")]
+    [Migration("20221218204509_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,51 +23,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bookedSeat", b =>
-                {
-                    b.Property<long>("bookedSeat_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("bookedSeat_id"), 1L, 1);
-
-                    b.Property<string>("Bookedseat_customerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Bookedseat_customerSeatno")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("bookedSeat_customerAge")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("bookedSeat_customerDiscTicketPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("bookedSeat_customerDiscountPercentage")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool>("bookedSeat_customerReached")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("bookedSeat_customerTicketPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("fk_bus_id")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("bookedSeat_id");
-
-                    b.HasIndex("fk_bus_id");
-
-                    b.ToTable("tbl_bookedSeat");
-                });
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bus", b =>
                 {
@@ -111,6 +66,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     b.HasKey("bus_id");
 
+                    b.HasIndex("bus_NumberPlate")
+                        .IsUnique();
+
                     b.HasIndex("fk_user_id");
 
                     b.ToTable("tbl_bus");
@@ -118,25 +76,46 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_busSeats", b =>
                 {
-                    b.Property<long>("busSeats_id")
+                    b.Property<long>("busSeat_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("busSeats_id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("busSeat_id"), 1L, 1);
 
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("busSeats_isBooked")
+                    b.Property<int>("busSeat_SeatNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("busSeat_customerAge")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("busSeat_customerDiscountPercentage")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("busSeat_customerDiscountedTicketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("busSeat_customerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("busSeat_customerReachedAmountCollected")
                         .HasColumnType("bit");
 
-                    b.Property<int>("busSeats_noOfSeats")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("busSeat_customerTicketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("busSeat_isBooked")
+                        .HasColumnType("bit");
 
                     b.Property<long>("fk_bus_id")
                         .HasColumnType("bigint");
 
-                    b.HasKey("busSeats_id");
+                    b.HasKey("busSeat_id");
 
                     b.HasIndex("fk_bus_id");
 
@@ -244,8 +223,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
                     b.HasKey("sale_id");
 
-                    b.HasIndex("fk_bus_id")
-                        .IsUnique();
+                    b.HasIndex("fk_bus_id");
 
                     b.ToTable("tbl_sale");
                 });
@@ -285,6 +263,9 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<long?>("user_id_ForConductor")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("user_name")
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
@@ -307,17 +288,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
                         .IsUnique();
 
                     b.ToTable("tbl_user");
-                });
-
-            modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bookedSeat", b =>
-                {
-                    b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
-                        .WithMany("tbl_bookedSeat")
-                        .HasForeignKey("fk_bus_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("tbl_bus");
                 });
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bus", b =>
@@ -345,8 +315,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_discount", b =>
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
-                        .WithMany()
-                        .HasForeignKey("fk_bus_id")
+                        .WithOne("tbl_discount")
+                        .HasForeignKey("OnlineBusTicketReservationSystem.Models.tbl_discount", "fk_bus_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -356,8 +326,8 @@ namespace OnlineBusTicketReservationSystem.Migrations
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_sale", b =>
                 {
                     b.HasOne("OnlineBusTicketReservationSystem.Models.tbl_bus", "tbl_bus")
-                        .WithOne("tbl_sale")
-                        .HasForeignKey("OnlineBusTicketReservationSystem.Models.tbl_sale", "fk_bus_id")
+                        .WithMany("tbl_sale")
+                        .HasForeignKey("fk_bus_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -366,9 +336,10 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
             modelBuilder.Entity("OnlineBusTicketReservationSystem.Models.tbl_bus", b =>
                 {
-                    b.Navigation("tbl_bookedSeat");
-
                     b.Navigation("tbl_busSeats");
+
+                    b.Navigation("tbl_discount")
+                        .IsRequired();
 
                     b.Navigation("tbl_sale");
                 });

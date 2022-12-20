@@ -31,6 +31,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public string? organization_logo { get; set; }//For Bus Users
         [StringLength(150)]
         public string? bus_NumberPlateForConductor { get; set; }
+        public long? user_id_ForConductor { get; set; }
         [NotMapped]
         public string? user_confirmPassword { get; set; } 
 

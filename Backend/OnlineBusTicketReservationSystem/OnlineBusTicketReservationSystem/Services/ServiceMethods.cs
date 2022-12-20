@@ -25,7 +25,8 @@ namespace OnlineBusTicketReservationSystem.Services
                 user_password = "123".Encrypt_password(),
                 user_email_phone = "annas@gmail.com",
                 user_role = "Super Admin",
-                user_verification_code = null,               
+                user_verification_code = null, 
+                Created_at = DateTime.Now
             };
             int a =await Tbl_user.Create(u);
             if (a > 0)

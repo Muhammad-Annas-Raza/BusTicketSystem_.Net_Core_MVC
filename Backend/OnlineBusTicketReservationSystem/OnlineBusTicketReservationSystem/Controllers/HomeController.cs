@@ -16,7 +16,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
     {
         private readonly IHttpContextAccessor context;
         private readonly ILogger<HomeController> logger;
-        private readonly IRepository<tbl_bookedSeat> Tbl_bookedSeat;
+
         private readonly IRepository<tbl_bus> Tbl_bus ;
         private readonly IRepository<tbl_busSeats> Tbl_busSeats;
         private readonly IRepository<tbl_discount> Tbl_discount;
@@ -28,7 +28,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
             (
             IHttpContextAccessor context,
             ILogger<HomeController> logger ,
-            IRepository<tbl_bookedSeat> Tbl_bookedSeat,
+
             IRepository<tbl_bus> Tbl_bus,
             IRepository<tbl_busSeats> Tbl_busSeats,
             IRepository<tbl_discount> Tbl_discount,
@@ -38,7 +38,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
         {
             this.context = context;
             this.logger = logger;
-            this.Tbl_bookedSeat = Tbl_bookedSeat ;
+
             this.Tbl_bus  = Tbl_bus  ;
             this.Tbl_busSeats= Tbl_busSeats;
             this.Tbl_discount = Tbl_discount ;
@@ -228,8 +228,9 @@ namespace OnlineBusTicketReservationSystem.Controllers
                 u.user_verification_code = code;
                 u.user_approved = true;
                 u.user_role = "User";
-               
-                    if (u.user_email_phone != null)
+                u.Created_at = DateTime.Now;
+
+                if (u.user_email_phone != null)
                 {
                     List<tbl_user> AllRows = await Tbl_user.GetAllRows();
                     foreach (tbl_user i in AllRows)

@@ -49,7 +49,8 @@
             <li><a asp-action="Index" asp-controller="Home">Services</a></li> 
     
     
-            <img class="logo hide2" height="100" style="margin-left: 35px !important; " src="~/assets/img/logo1.png">
+                  @*<img class="logo hide2" height="100" style="margin-left: 35px !important; " src="~/assets/img/logo1.png">*@
+        <img class="logo hide2" height="100" style="margin-left: 35px !important; " src="~/assets/img/p1.png">
     
             <li><a asp-action="Index" asp-controller="Home">Contact</a></li>
             <li><a class="nav-link scrollto" asp-action="Feedback" asp-controller="Home">Feedback</a></li>  
@@ -104,7 +105,9 @@
 
           </ul>
     
-          <img class="logo hide" height="80" style="margin-left: 25px;" src="~/assets/img/apple-touch-icon.png"></a>
+        @*<img class="logo hide" height="80" style="margin-left: 25px;" src="~/assets/img/logo1.png"></a>*@
+      <img class="logo hide" height="50" style="margin-left: 25px;" src="~/assets/img/p1.png"></a> 
+    
           <div class="float hide">
     
             <i class="float d-lg-none bi bi-list mobile-nav-toggle mt-2"></i>
@@ -163,10 +166,10 @@
         <div class="col-lg-4 col-md-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="Express.html">Express</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="Luxury.html">Luxury</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="VolvoAC.html">Volvo (A/C)</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="VolvoNonAC.html">Volvo (Non A/C)</a></li>              
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="Express" asp-controller="Services">Express</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="Luxury" asp-controller="Services">Luxury</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="VolvoAC" asp-controller="Services">Volvo (A/C)</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="VolvoNonAC" asp-controller="Services">Volvo (Non A/C)</a></li>              
           </ul>
         </div>
 <!-- 

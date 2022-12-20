@@ -1,0 +1,114 @@
+
+body {
+    font: normal 75% Arial, Helvetica, sans-serif;
+    overflow: auto;
+    width: 100%;
+    background-color: #0c0032;
+    background-image: url('../img/banner.jpg') !important;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: cover;
+}
+/*searc options*/
+.bus-name {
+    font-family: kanit_medium;
+}
+
+.bus-description div {
+    font-size: 15px;
+    font-family: josefin;
+    padding-top: 9px;
+    color: #99a2a8;
+    line-height: 1;
+}
+
+.fr {
+    float: right;
+}
+
+.bus-description div span {
+    color: #003300;
+    font-size: 14px;
+}
+
+.btn-circle {
+    border-radius: 25px !important;
+    overflow: hidden;
+    outline: 0px !important;
+    position: relative;
+    text-align: center;
+    background: transparent;
+    color: #5cb85c;
+    border: 1px solid #5cb85c;
+    font-family: kanit_medium;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, .2);
+}
+
+.book_btn {
+    padding: 7px 19px 7px 19px;
+}
+
+.card {
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 15px;
+}
+
+/*seat chart*/
+div.seatCharts-cell {
+    color: #182C4E;
+    height: 35px;
+    width: 37px;
+    line-height: 25px;
+    padding-top: 5px;
+}
+
+
+
+div.seatCharts-seat {
+    color: #FFFFFF;
+}
+
+
+    div.seatCharts-seat.available {
+        background-color: #969696;
+        border-radius: 7px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    div.seatCharts-seat.booked {
+        border-radius: 7px;
+        text-align: center;
+        background-color: #980303;
+        cursor: default;
+    }
+
+
+.booking-details {
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 13px;
+    position: relative;
+    /*height: 401px;*/
+}
+
+    .booking-details h2 {
+        margin: 5px 0 10px 0;
+        font-size: 17px;
+        color: #444;
+        font-size: 25px;
+        font-weight: normal;
+        line-height: 1.1;
+    }
+
+    .booking-details h3 {
+        margin: 5px 5px 0 0;
+        font-size: 15px;
+        font-family: Monospace;
+    }

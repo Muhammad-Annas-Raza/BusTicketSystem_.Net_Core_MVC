@@ -110,87 +110,41 @@
 
   </header><!-- End Header -->
 
-@*  <!-- ======= Sidebar ======= -->
+   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="home.html">
-            <i  class="bx-sm bi bi-grid"></i>
-           <span>Dashboard</span>
+          <a class="nav-link collapsed" asp-action="Index" asp-controller="Conductor">
+              <i class='bx-sm bi bi-coin' ></i>
+           <span>Collect Amount</span>
           </a>
-        </li><!-- End Dashboard Nav -->
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link collapsed" asp-action="CollectedAmount" asp-controller="Conductor">
+             <i class="bx-sm bi bi-cash"></i>
+           <span>View Collected Amount</span>
+          </a>
+        </li> 
   
         <li class="nav-item">
-          <a class="nav-link collapsed" href="adduser.html">
-            <i class="bx-sm ri-user-add-line"></i>
-            <span>Add User</span>
+          <a class="nav-link collapsed" asp-action="EditBusDetails" asp-controller="Conductor">
+              <img src="~/BusOwnerassets/img/bus_profile.png" height="20" style="margin-right:10px;"/>
+            <span>Edit Bus Details</span>
           </a>
-        </li><!-- End Add Users Nav -->
+        </li> 
   
-        <li class="nav-item">
-          <a class="nav-link collapsed"  href="viewuser.html">
-            <i class="bx-sm ri-eye-line"></i>
-            <span>View User</span><i class="ms-auto"></i>
-          </a>
-          
-        </li><!-- End View Users Nav -->
-  
-          <li class="nav-item">
-          <a class="nav-link collapsed" href="addcategory.html">
-            <i class='bx bx-plus bx-sm'></i>
-            <span>Add Categories</span>
-          </a><!-- End Add Categories Nav -->
-  
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="viewcategory.html">
-            <i class="bx-sm bi bi-menu-button-wide"></i>
-            <span>View Categories</span>
-          </a>
-        </li><!-- End View Categories Nav --> 
-  
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="addproduct.html">
-            <i class="bx-sm ri-product-hunt-line"></i>
-            <span>Add Products</span>
-          </a>
-        </li><!-- End Add Products Nav -->
-  
-        <li class="nav-item">
-          <a class="nav-link collapsed"href="viewproduct.html">
-            <i class="bx-sm ri-eye-2-line"></i>
-            <span>View Products</span><i class="ms-auto"></i>
-          </a>
-          
-        </li><!-- End View Products Nav -->
-  
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="addstock.html">
-            <i class='bx-sm bx bx-add-to-queue'></i>
-            <span>Add Stock</span>
-          </a>         
-        </li><!-- End Add Stock Nav -->  
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="viewstock.html">
-            <i class="bx-sm ri-eye-2-fill"></i>
-            <span>View Stock</span>
-          </a>
-        </li><!-- End View Stock Nav -->  
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="salepoint.html">
-            <i class='bx-sm bx bx-info-circle' ></i>
-            <span>Sale Point</span>
-          </a>
-        </li><!-- End Sale Point Nav -->  
-        <li class="nav-item">
-          <a class="nav-link collapsed" asp-controller="Home" asp-action="Logout">
-            <i class="ri-logout-box-line bx-sm"></i>
-           <span>Sign out</span>
-          </a>
-        </li><!-- End Login Page Nav -->  
+       
+        </li> 
+       <li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="Home" asp-action="Logout">
+          <i class="ri-logout-box-line bx-sm"></i>
+         <span>Sign out</span>
+        </a>
+      </li><!-- End Login Page Nav -->  
         </ul>
 </aside>
-*@
+ 
 
 
 <main id="main" class="main">

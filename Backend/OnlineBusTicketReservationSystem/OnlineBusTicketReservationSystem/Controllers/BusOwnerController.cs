@@ -13,31 +13,35 @@ namespace OnlineBusTicketReservationSystem.Controllers
     {
 
         private readonly IHttpContextAccessor context;
-        private readonly IRepository<tbl_bookedSeat> Tbl_bookedSeat;
+
         private readonly IRepository<tbl_bus> Tbl_bus;
         private readonly IRepository<tbl_busSeats> Tbl_busSeats;
         private readonly IRepository<tbl_discount> Tbl_discount;
         private readonly IRepository<tbl_sale> Tbl_sale;
         private readonly IRepository<tbl_user> Tbl_user;
+        private readonly IWebHostEnvironment hostEnvironment;
+
 
         public BusOwnerController
             (
             IHttpContextAccessor context,
-            IRepository<tbl_bookedSeat> Tbl_bookedSeat,
+
             IRepository<tbl_bus> Tbl_bus,
             IRepository<tbl_busSeats> Tbl_busSeats,
             IRepository<tbl_discount> Tbl_discount,
             IRepository<tbl_sale> Tbl_sale,
-            IRepository<tbl_user> Tbl_user
+            IRepository<tbl_user> Tbl_user,
+            IWebHostEnvironment hostEnvironment
             )
         {
             this.context = context;
-            this.Tbl_bookedSeat = Tbl_bookedSeat;
+
             this.Tbl_bus = Tbl_bus;
             this.Tbl_busSeats = Tbl_busSeats;
             this.Tbl_discount = Tbl_discount;
             this.Tbl_sale = Tbl_sale;
             this.Tbl_user = Tbl_user;
+            this.hostEnvironment = hostEnvironment;
         }
         public IActionResult Index()
         {
@@ -70,6 +74,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
                 u.user_approved = true;
                 u.organization_name = row.organization_name;
                 u.Created_at = DateTime.Now;
+                u.user_id_ForConductor = long.Parse(HttpContext.Session.GetString("UsrId") ?? "0");
                 try
                 {
                     int a = await Tbl_user.Create(u);
@@ -97,14 +102,14 @@ namespace OnlineBusTicketReservationSystem.Controllers
         }
         public async Task<IActionResult> ViewConductor()
         {
-            List<tbl_user> rows = await Tbl_user.GetAllConductors();
+            List<tbl_user> rows = await Tbl_user.GetAllConductors(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
             return View(rows);
         }
 
         public async Task<IActionResult> DeleteConductor(long id)
         {
             await Tbl_user.Delete(id);
-            List<tbl_user> rows = await Tbl_user.GetAllConductors();
+            List<tbl_user> rows = await Tbl_user.GetAllConductors(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
             return PartialView("_ViewConductor", rows);
         }
         [HttpGet]
@@ -131,10 +136,11 @@ namespace OnlineBusTicketReservationSystem.Controllers
                         TempData["msg6"] = "Bus Added";
                     for (int i = 1; i <= b.bus_noOfSeats; i++)
                     {
-                        a = await Tbl_busSeats.Create(new tbl_busSeats() 
-                        { 
-                            busSeats_noOfSeats = i,
-                            busSeats_isBooked = false,
+                        a = await Tbl_busSeats.Create(new tbl_busSeats()
+                        {
+                            busSeat_SeatNumber = i,
+                            busSeat_customerTicketPrice = b.bus_ticketPrice,
+                            busSeat_isBooked = false,
                             Created_at = DateTime.Now,
                             fk_bus_id = b.bus_id,
                         }) ;
@@ -171,12 +177,14 @@ namespace OnlineBusTicketReservationSystem.Controllers
 
         public async Task<IActionResult> ViewBus()
         {
-            List<tbl_bus> rows = await Tbl_bus.GetAllRows();
+            List<tbl_bus> rows = await Tbl_bus.GetBusesfk_user_id(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
             return View(rows);
         }
 
         public async Task<IActionResult> DeleteBus(long id)
         {
+            tbl_bus? row = await Tbl_bus.GetRowById(id);
+           await Tbl_user.DeleteConductorByBusNumber(row.bus_NumberPlate);
             await Tbl_bus.Delete(id);
             List<tbl_bus> rows = await Tbl_bus.GetAllRows();
             return PartialView("_ViewBus", rows);
@@ -187,7 +195,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
        
         public async Task<IActionResult> ViewDiscount()
         {
-            List<tbl_discount> rows = await Tbl_discount.GetDiscountInnerJoin();
+            List<tbl_discount> rows = await Tbl_discount.GetDiscountInnerJoin(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
             return View(rows);
         }
         
@@ -204,7 +212,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
                 row.Created_at = DateTime.Now;
                 await Tbl_discount.Update(row);
             }
-            List<tbl_discount> rows = await Tbl_discount.GetDiscountInnerJoin();
+            List<tbl_discount> rows = await Tbl_discount.GetDiscountInnerJoin(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
             return PartialView("_ViewDiscount", rows);
         }
         
@@ -220,6 +228,58 @@ namespace OnlineBusTicketReservationSystem.Controllers
             d.Created_at = DateTime.Now;
             await Tbl_discount.Update(d);
             return RedirectToAction("ViewDiscount","BusOwner");
+        } 
+        public async Task<IActionResult> OrganizationProfile()
+        {
+            tbl_user? row = await Tbl_user.GetRowById(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+            return View(row);
+        }
+        [HttpPost]
+          public async Task<IActionResult> OrganizationProfile(IFormFile Http_img,string Orgname, string OrgDes)
+        {
+            tbl_user? row = await Tbl_user.GetRowById(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+            if (Http_img != null) 
+            {
+                string wwwroot = hostEnvironment.WebRootPath;
+                if (System.IO.File.Exists(Path.Combine(wwwroot + "/Organization_Logo", row.organization_logo ?? "Nothing")))
+                {
+                    System.IO.File.Delete(Path.Combine(wwwroot + "/Organization_Logo", row.organization_logo ?? "Nothing"));
+                }
+
+                row.organization_name = Orgname;
+                row.organization_description = OrgDes;
+                string Filename = Path.GetFileNameWithoutExtension(Http_img.FileName);
+                string Extension = Path.GetExtension(Http_img.FileName);
+
+                Filename = Filename + DateTime.Now.ToString("fffffff") + Extension;
+                row.organization_logo = Filename;
+                string path = Path.Combine(wwwroot+"/Organization_Logo", Filename);
+                try
+                {
+                    using (var fs = new FileStream(path, FileMode.Create))
+                    {
+                        await Http_img.CopyToAsync(fs);
+                    }
+                }
+                catch (Exception)
+                {
+                    TempData["msg10"] = "Failed to update";
+                }
+                TempData["msg9"] = "Edit Successful";
+                await Tbl_user.Update(row);
+            }else if (Http_img == null)
+            {
+                row.organization_name = Orgname;
+                row.organization_description = OrgDes;
+                await Tbl_user.Update(row);
+                TempData["msg9"] = "Edit Successful";
+            }
+            else
+            {
+                TempData["msg10"] = "Please fill all Fields";
+            }
+          
+                return RedirectToAction("OrganizationProfile","BusOwner");
         }
 
 

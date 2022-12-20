@@ -40,7 +40,7 @@ builder.Services.AddRazorPages();
 
 var mycon = builder.Configuration.GetConnectionString("cs_Bus");
 builder.Services.AddDbContext<MyContext>(options => options.UseSqlServer(mycon));
-builder.Services.AddTransient<IRepository<tbl_bookedSeat>, Repository<tbl_bookedSeat>>();
+
 builder.Services.AddTransient<IRepository<tbl_bus>, Repository<tbl_bus>>();
 builder.Services.AddTransient<IRepository<tbl_busSeats>, Repository<tbl_busSeats>>();
 builder.Services.AddTransient<IRepository<tbl_discount>, Repository<tbl_discount>>();

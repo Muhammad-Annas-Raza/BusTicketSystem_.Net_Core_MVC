@@ -11,7 +11,8 @@ namespace OnlineBusTicketReservationSystem.Models
         public tbl_bus()
         {
             tbl_busSeats = new HashSet<tbl_busSeats>();
-            tbl_bookedSeat = new HashSet<tbl_bookedSeat>();
+            //tbl_bookedSeat = new HashSet<tbl_bookedSeat>();
+            tbl_sale = new HashSet<tbl_sale>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -42,20 +43,23 @@ namespace OnlineBusTicketReservationSystem.Models
         // </summary>  
         public virtual ICollection<tbl_busSeats>? tbl_busSeats { get; set; }
 
-
-
-
         //<summary>     
         // Navigational Property of collection of booked seats of one bus
         // <One to Many Relation> One bus can have many booked seats
         // </summary>  
-        public virtual ICollection<tbl_bookedSeat>? tbl_bookedSeat { get; set; }
+        //public virtual ICollection<tbl_bookedSeat>? tbl_bookedSeat { get; set; }
 
         //<summary>     
         // Navigational Property of Sale Of one bus
-        // <One to One Relation> One bus can have One Revenue
+        // <One to Many Relation> One bus can have Multiple Revenue
         // </summary>  
-        public virtual tbl_sale? tbl_sale { get; set; }
+        public virtual ICollection<tbl_sale> tbl_sale { get; set; }
+
+        //<summary>     
+        // Navigational Property of Sale Of one bus
+        // <One to One Relation> One bus can have One Dicount
+        // </summary>  
+        public virtual tbl_discount tbl_discount { get; set; }
     
 
     }

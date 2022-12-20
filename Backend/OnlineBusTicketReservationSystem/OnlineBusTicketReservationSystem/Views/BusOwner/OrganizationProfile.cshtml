@@ -1,0 +1,190 @@
+﻿@model tbl_user
+
+@{
+     Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+
+
+
+<div class="pagetitle">
+    <h1>Organization Profile</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="BusOwner">Home</a></li>
+            <li class="breadcrumb-item active">Organization Profile</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                    <img src="~/Organization_Logo/@Model.organization_logo" alt="Logo" class="rounded-circle">
+
+                    <h2>@Model.organization_name</h2>
+ 
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                        </li>
+
+@* <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                        </li>*@
+
+                    </ul>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+
+                            <h5 class="card-title">Organization Details</h5>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Organization Name</div>
+                                <div class="col-lg-9 col-md-8">@Model.organization_name</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Organization Description</div>
+                                <div class="col-lg-9 col-md-8">@Model.organization_description</div>
+                            </div>
+                             
+                        <div class="text-center">
+                            <p class="text-success h3">@TempData["msg9"]</p>
+                        <p class="text-danger h3">@TempData["msg10"]</p>
+                        </div>
+                        </div>
+                        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                            <!-- Profile Edit Form -->
+
+                                <form asp-action="OrganizationProfile" asp-controller="BusOwner" enctype="multipart/form-data">
+
+                                @Html.AntiForgeryToken()                     
+                                <div class="row mb-3">
+                                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Organization Logo</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <img src="~/Organization_Logo/@Model.organization_logo" alt="Logo" id="UserImage">
+                                        <div class="pt-2">
+                                            <a href="#" id="clckone" class="btn btn-primary btn-sm" title="Change profile image"><i class="bi bi-upload"></i></a><label id="wrt_here1">&nbsp;(Edit image)</label>
+                                            <input type="file" name="Http_img" accept="image/png,image/jpg,image/jpeg" class="d-none" id="BrowseImage"  onChange='getoutput()' />
+                                            <div id="er1"></div>
+                                            @* <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Organization Name</label>
+                                    <div class="col-md-8 col-lg-9">
+                                             <input type="text" class="form-control" name="Orgname" value="@Model.organization_name">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Organization Name</label>
+                                    <div class="col-md-8 col-lg-9">
+                                             <input type="text" class="form-control" name="OrgDes" value="@Model.organization_description">
+                                    </div>
+                                </div>
+
+                                 
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>                           
+                      </form>
+
+                            <!-- End Profile Edit Form -->
+
+
+
+
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+
+
+
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-change-password">
+                            <!-- Change Password Form -->
+                           
+
+
+</div>
+
+                    </div><!-- End Bordered Tabs -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+<script src="~/assets/js/jQuery.js"></script>
+
+<script>
+    //document.querySelector("#title").innerHTML = " SRC / Organization Profile";
+   
+
+    $("#clckone").click(function () {
+        $("#BrowseImage").click();
+    });
+
+    $('#BrowseImage').change(function () {
+        if (this.files && this.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(this.files[0]);
+            fileReader.onload = function (x) {
+                $('#UserImage').attr('src', x.target.result);
+            }
+        }
+    });
+    function getFile(filePath) {
+        return filePath.substr(filePath.lastIndexOf('\\') + 1).split('.')[0];
+    }
+
+    function getoutput() {
+        var file_name = getFile(BrowseImage.value) + "." + BrowseImage.value.split('.')[1];
+        //outputfile.value = getFile(BrowseImagee.value);
+        //extension.value = BrowseImagee.value.split('.')[1];
+        if (BrowseImage.value.split('.')[1].toLowerCase() == "jpg" || BrowseImage.value.split('.')[1].toLowerCase() == "png" || BrowseImage.value.split('.')[1].toLowerCase() == "jpeg") {
+
+            document.getElementById("wrt_here1").innerHTML = `<span class="text-success">&nbsp;(` + file_name + `)<span>`;
+            document.getElementById("er1").innerHTML = "";
+        }
+        else {
+            document.getElementById("wrt_here1").innerHTML = `<span class="text-danger">&nbsp;(` + file_name + `)<span>`;
+            document.getElementById("er1").innerHTML = `<span class="text-danger">Only .jpg .jpeg & .png are allowed !!!<span>`;
+        }
+    }
+
+
+
+
+
+</script>
+

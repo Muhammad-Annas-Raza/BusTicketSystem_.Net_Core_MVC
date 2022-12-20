@@ -42,6 +42,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
                     organization_description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     organization_logo = table.Column<string>(type: "text", nullable: true),
                     bus_NumberPlateForConductor = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    user_id_ForConductor = table.Column<long>(type: "bigint", nullable: true),
                     user_role = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -78,46 +79,25 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tbl_bookedSeat",
-                columns: table => new
-                {
-                    bookedSeat_id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    bookedSeat_customerAge = table.Column<int>(type: "int", nullable: false),
-                    bookedSeat_customerTicketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    bookedSeat_customerDiscountPercentage = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    bookedSeat_customerDiscTicketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Bookedseat_customerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Bookedseat_customerSeatno = table.Column<int>(type: "int", nullable: true),
-                    bookedSeat_customerReached = table.Column<bool>(type: "bit", nullable: false),
-                    Created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    fk_bus_id = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tbl_bookedSeat", x => x.bookedSeat_id);
-                    table.ForeignKey(
-                        name: "FK_tbl_bookedSeat_tbl_bus_fk_bus_id",
-                        column: x => x.fk_bus_id,
-                        principalTable: "tbl_bus",
-                        principalColumn: "bus_id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "tbl_busSeats",
                 columns: table => new
                 {
-                    busSeats_id = table.Column<long>(type: "bigint", nullable: false)
+                    busSeat_id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    busSeats_noOfSeats = table.Column<int>(type: "int", nullable: false),
-                    busSeats_isBooked = table.Column<bool>(type: "bit", nullable: false),
+                    busSeat_SeatNumber = table.Column<int>(type: "int", nullable: false),
+                    busSeat_isBooked = table.Column<bool>(type: "bit", nullable: false),
+                    busSeat_customerAge = table.Column<int>(type: "int", nullable: true),
+                    busSeat_customerTicketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    busSeat_customerDiscountPercentage = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    busSeat_customerDiscountedTicketPrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    busSeat_customerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    busSeat_customerReachedAmountCollected = table.Column<bool>(type: "bit", nullable: false),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     fk_bus_id = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tbl_busSeats", x => x.busSeats_id);
+                    table.PrimaryKey("PK_tbl_busSeats", x => x.busSeat_id);
                     table.ForeignKey(
                         name: "FK_tbl_busSeats_tbl_bus_fk_bus_id",
                         column: x => x.fk_bus_id,
@@ -177,9 +157,10 @@ namespace OnlineBusTicketReservationSystem.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_tbl_bookedSeat_fk_bus_id",
-                table: "tbl_bookedSeat",
-                column: "fk_bus_id");
+                name: "IX_tbl_bus_bus_NumberPlate",
+                table: "tbl_bus",
+                column: "bus_NumberPlate",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_bus_fk_user_id",
@@ -200,8 +181,7 @@ namespace OnlineBusTicketReservationSystem.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_sale_fk_bus_id",
                 table: "tbl_sale",
-                column: "fk_bus_id",
-                unique: true);
+                column: "fk_bus_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_user_user_email_phone",
@@ -212,9 +192,6 @@ namespace OnlineBusTicketReservationSystem.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "tbl_bookedSeat");
-
             migrationBuilder.DropTable(
                 name: "tbl_busSeats");
 
