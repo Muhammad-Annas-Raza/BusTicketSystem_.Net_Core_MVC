@@ -39,6 +39,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzT3duZXJcQWRkQ29uZHVjdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/BusOwner/EditBus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzT3duZXJcRWRpdEJ1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/BusOwner/EditDiscount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzT3duZXJcRWRpdERpc2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -103,10 +107,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxlbWFpbFZlcmlmaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/Feedback.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGZWVkYmFjay5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -123,16 +123,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/Thanks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUaGFua3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Home/UserRegister.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/BookTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcQm9va1RpY2tldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/Express.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRXhwcmVzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/Luxury.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcTHV4dXJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/Ticket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcVGlja2V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/BusTicketSystem_.Net_Core_MVC/Backend/OnlineBusTicketReservationSystem/OnlineBusTicketReservationSystem/Views/Services/VolvoAC.cshtml]

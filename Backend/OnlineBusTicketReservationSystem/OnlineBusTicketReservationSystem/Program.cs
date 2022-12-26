@@ -46,6 +46,8 @@ builder.Services.AddTransient<IRepository<tbl_busSeats>, Repository<tbl_busSeats
 builder.Services.AddTransient<IRepository<tbl_discount>, Repository<tbl_discount>>();
 builder.Services.AddTransient<IRepository<tbl_sale>, Repository<tbl_sale>>();
 builder.Services.AddTransient<IRepository<tbl_user>, Repository<tbl_user>>();
+builder.Services.AddTransient<IRepository<tbl_history>, Repository<tbl_history>>();
+builder.Services.AddTransient<IRepository<tbl_feedback>, Repository<tbl_feedback>>();
 
 
 

@@ -5,15 +5,29 @@
 
 
 <div style="background-color: rgb(255, 255, 255);" class="container"> 
-    
+     <section class="breadcrumbs">
+    <div class="container">
 
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Express</h2>
+          <ol>
+            <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li>Express</li>
+          </ol>
+        </div>
+
+      </div>
+       </section>
     <div class="text-center">
         <p class="display-3 text-danger" style="background:transparent;">
         @TempData["msg13"] 
     </p>
 
     </div>
-
+      @if((string)TempData["msg13"] == "No Bus Available")
+    {
+           <div style="margin-top:300px;"></div>
+    }
     @if((string)TempData["msg13"] != "No Bus Available")
     {
          
@@ -38,7 +52,7 @@
                       <img src="~/assets/img/p2.png" alt="bus" height="130" width="130">
                   </div>
                   <div class="col-md-8 bus-details">
-                      <h5 class="card-title bus-name nmbr_plate">@i.bus_NumberPlate (<span class="bus-type fs-13">@i.bus_category</span>)</h5>
+                      <h5 class="card-title bus-name nmbr_plate">@i.bus_NumberPlate (<span class="bus-type fs-13">@i.bus_OrganizationName</span>)</h5>
                       <div class="row card-text m-b-10 bus-description">
                           <div class="col-sm-6 fs-14 Usr_name">
                               <i class="bi bi-smartwatch" style="font-size: 13px;"></i> Departure: <span class="p-r-5 fr ">@i.bus_startingTime</span>
@@ -47,7 +61,7 @@
                               <i class="fa fa-road"></i> Route: <span class="p-r-5 fr ">@i.bus_destination</span>                        
                           </div>
                           <div class="col-sm-6 fs-14">
-                             <i class="bi bi-stack"></i>
+                             <img src="~/assets/img/seat.png" height="18" style="margin-left:-2px !important;"/>
                               Total Bus Seats:
                               <span class="p-r-5 fr"><span class="seats-left">@i.bus_noOfSeats</span> seats </span>
                           </div>

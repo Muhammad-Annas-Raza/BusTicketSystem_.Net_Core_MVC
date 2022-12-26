@@ -272,6 +272,11 @@ namespace OnlineBusTicketReservationSystem.Services
         {
             return await db_context.tbl_busSeats.Where(m => m.fk_bus_id == id).ToListAsync();
         }
+        
+        public async Task<List<tbl_history>> GetUserHistory(long id)
+        {
+            return await db_context.tbl_history.Where(m => m.fk_user_id == id).OrderByDescending(m => m.history_id).ToListAsync();
+        }
 
 
 

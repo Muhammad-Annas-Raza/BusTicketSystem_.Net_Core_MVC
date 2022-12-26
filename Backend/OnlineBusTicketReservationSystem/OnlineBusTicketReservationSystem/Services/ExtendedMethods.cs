@@ -71,7 +71,7 @@ namespace OnlineBusTicketReservationSystem.Services
                 catch (Exception) { }
             }
 
-            public static void Send_WelcomeEmail(this string email)
+            public static void Send_FeedbackEmail(this string email,string name)
             {
                 try
                 {
@@ -79,7 +79,7 @@ namespace OnlineBusTicketReservationSystem.Services
                     mail.To.Add(email);
                     mail.From = new MailAddress("pointofsale15@gmail.com");
                     mail.Subject = "Welcome to SRC!!!";
-                    mail.Body = "<h3><span style=\"color:green;\">Congratulations!!!</span><br />you have successfully registered your account</h3>";
+                    mail.Body = "<h3>Hi, "+name+ "<br />Hope you are doing well.<br /><span style=\"color:green;\">Thanks for your feedback!!!</span></h3>";
                     mail.IsBodyHtml = true;
 
                     SmtpClient smtp = new SmtpClient();

@@ -1,0 +1,261 @@
+﻿@model IEnumerable<tbl_history> 
+@{
+   Layout = "~/Views/Shared/_ServicesLayout.cshtml";
+}
+     
+
+ <div style="background-color: rgb(255, 255, 255);" class="container p-3"> 
+
+      <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Ticket History</h2>
+          <ol>
+            <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li>Ticket History</li>
+          </ol>
+        </div>
+
+      </div>
+       </section>
+
+
+
+
+
+
+
+
+      <div class="text-center">
+        <p class="display-3 text-danger" style="background:transparent;">
+        @TempData["msg19"] 
+    </p>
+
+    </div>
+      @if((string)TempData["msg19"] != "No Tickets Booked")
+    {
+         
+      <div id="srrrch" class="input-group mb-3">
+        <div class="form-outline">
+          <input style="line-height: 25px;border: 1px solid grey;" id="id" onkeyup="srch()" class="form-control mt-5" placeholder="Search" />
+        </div>
+        <button type="button" class="btn btn-primary h-25 mt-5">
+          <i class="bx bx-search"></i>
+        </button>
+        </div>
+      <br>
+    }else{
+
+               
+    }
+                <div id="exam">
+
+
+
+
+
+@foreach (tbl_history i in Model)
+{
+    <div class="container" id="@i.history_id">    
+<div class="xyz col-md-12">
+  <div class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-3 bus-image text-center" style=" text-align:center;
+  margin:auto 0;">
+                  <img src="~/assets/img/logo2.png" alt="bus" height="130" width="130">
+              </div>
+              <div class="col-md-9 bus-details">                 
+
+ 
+
+                  <h3 class="card-title bus-name Usr_name">@i.history_CustomerName (<span class="bus-type fs-13">@i.history_CustomerAge years old</span>)</h3>
+                  <div class="row card-text m-b-10 bus-description">
+                 
+                       <div class="col-sm-6 fs-14 usr_email" >
+                          <img src="~/assets/img/busicon.png" height="18" style="margin-left:-2px !important;"/> Bus Number:
+                          <span class="p-r-5 fr">@i.history_CustomerBusNumber</span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                         <img src="~/assets/img/p6.png" height="18" style="margin-left:-2px !important;"/> Organization Name:
+                          <span class="p-r-5 fr">@i.history_CustomerBusOrganizationName</span>
+                      </div>
+                      
+                      
+                      <div class="col-sm-6 fs-14 org_name">
+                           <i class="bi bi-smartwatch" style="font-size: 13px;"></i> Departure: <span class="p-r-5 fr">@i.history_CustomerBusStartingTime</span>
+                      </div>
+                      <div class="col-sm-6 fs-14 nmbr_plate">
+                         <i class="fa fa-road"></i> Route:
+                          <span class="p-r-5 fr">@i.history_CustomerDestination</span>
+                      </div>
+                      <div class="col-sm-6 fs-14 aaa">
+                          <img src="~/assets/img/seat.png" height="18" style="margin-left:-2px !important;"/> Seat #:
+                          <span class="p-r-5 fr">@i.history_CustormerSeatno </span>
+                      </div>
+                      <div class="col-sm-6 fs-14 bbb">
+                          <i class="bi bi-cash"></i> Fare:
+                          <span class="p-r-5 fr">@i.history_CustomerTicketPrice - @i.history_CustomerDiscountPercentage % = @i.history_CustomerDiscountedTicketPrice <span class="text-success">Rs.</span></span>
+                      </div>
+
+
+                      
+                       <div class="col-sm-6 fs-14 ccc">
+                          <i class="bi bi-stack"></i> Bus Category:
+                          <span class="p-r-5 fr">@i.history_CustomerBusCategory</span>
+                      </div>
+                      <div class="col-sm-6 fs-14 ddd">
+                         <i class="bi bi-ticket-detailed"></i> Ticket Booking Time:
+                          <span class="p-r-5 fr"> @i.Created_at</span>
+                              @*<script>
+                              var array = `@i.Created_at`.split(" ")
+                              document.getElementById('@i.history_id').innerHTML=array[0]+`<br />`+array[1]+` `+array[2]
+                              </script>
+                              *@
+                      </div>
+
+
+
+
+ 
+
+
+                  </div>
+                  
+                  
+                  <div class="p-t-13">
+                      <a onclick="generatepdf(@i.history_id)"  class="boxxx btn btn-circle btn-success book_btn mt-3" data-bus="1">Download</a>
+                      
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+
+   <div id="mydiv2" class="p-t-13 d-none mt-5 text-center">
+                      <code class="h6" style="background-color:#c7254e;color:white;padding:3px 7px 3px 7px;"><b>show ticket at the time of paying</b></code>
+                      </div>
+
+
+
+   
+
+
+}
+  </div>
+  </div>
+   
+  @if((string)TempData["msg19"] == "No Tickets Booked")
+    {
+           <div style="margin-top:300px;"></div>
+    }
+
+
+   @*Add this to download pdf*@
+  @*<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>*@
+ <script src="~/assets/js/PDF.js" ></script> 
+ 
+ 
+  
+ 
+                          <script>
+
+                               function srch(){
+    let filter = document.getElementById('id').value.toUpperCase();
+    let myTable = document.getElementById('exam');
+    let whole_table = document.querySelectorAll('.xyz');
+    
+    let tr = myTable.getElementsByClassName("Usr_name")
+    let tr1 = myTable.getElementsByClassName("usr_email")
+    let tr2 = myTable.getElementsByClassName("org_name")
+    let tr3 = myTable.getElementsByClassName("nmbr_plate")
+    let tr4 = myTable.getElementsByClassName("aaa")
+    let tr5 = myTable.getElementsByClassName("bbb")
+    let tr6 = myTable.getElementsByClassName("ccc")
+    let tr7 = myTable.getElementsByClassName("ddd")
+    for(var i=0; i<tr.length; i++) {
+      let td = tr[i].textContent || td.innerHTML;
+      let td1 = tr1[i].textContent || td.innerHTML;
+      let td2 = tr2[i].textContent || td.innerHTML;
+      let td3 = tr3[i].textContent || td.innerHTML;
+      let td4 = tr4[i].textContent || td.innerHTML;
+      let td5 = tr5[i].textContent || td.innerHTML;
+      let td6 = tr6[i].textContent || td.innerHTML;
+      let td7 = tr7[i].textContent || td.innerHTML;
+    if(td) {
+            if(td.toUpperCase().indexOf(filter) > -1 || td1.toUpperCase().indexOf(filter) > -1 || td2.toUpperCase().indexOf(filter) > -1 || td3.toUpperCase().indexOf(filter) > -1
+             || td4.toUpperCase().indexOf(filter) > -1
+              || td5.toUpperCase().indexOf(filter) > -1
+               || td6.toUpperCase().indexOf(filter) > -1
+                || td7.toUpperCase().indexOf(filter) > -1
+            
+            ){
+               console.log(whole_table[i].style.display = "")
+            }else{
+              whole_table[i].style.display = "none"
+            }
+          }
+        }
+      }
+    
+    
+
+                          function generatepdf(a){
+                                event.preventDefault();
+
+                                const boxess = document.querySelectorAll('.boxxx');
+
+
+
+
+for (const box of boxess) {
+  box.classList.add('d-none');
+}
+
+ 
+                                `@foreach (tbl_history i in Model)
+                               {
+        
+           @:`+document.getElementById(@i.history_id).classList.add('d-none')+`
+                              
+                      }`
+                               
+                       
+                               document.getElementById(a).classList.remove('d-none')                 
+                               document.getElementById('srrrch').classList.add('d-none')                 
+                               document.getElementById('header').classList.add('d-none')                 
+                               document.getElementById('footer').classList.add('d-none')   
+                                 document.getElementById('mydiv2').classList.remove('d-none')         
+               
+          var element = document.body.innerHTML; 
+
+          
+for (const box of boxess) {
+  box.classList.remove('d-none');
+}
+
+             `@foreach (tbl_history i in Model)
+                               {
+        
+           @:`+document.getElementById(@i.history_id).classList.remove('d-none')+`
+                              
+                      }`
+                      
+           
+
+                       document.getElementById('mydiv2').classList.add('d-none')         
+            document.getElementById('srrrch').classList.remove('d-none')                 
+            document.getElementById('header').classList.remove('d-none')                 
+            document.getElementById('footer').classList.remove('d-none') 
+               
+        //easy
+        html2pdf().from(element).save();
+ 
+    } 
+                          
+                          
+                          </script>

@@ -15,7 +15,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public DbSet<tbl_discount> tbl_discount{ get; set; } = null!;
         public DbSet<tbl_busSeats> tbl_busSeats { get; set; } = null!;
         public DbSet<tbl_bus> tbl_bus { get; set; } = null!;
-        //public DbSet<tbl_bookedSeat> tbl_bookedSeat { get; set; } =  null!;
+         public DbSet<tbl_history> tbl_history { get; set; } =  null!;
         public DbSet<tbl_feedback> tbl_feedback { get; set; } =  null!;
 }
 }

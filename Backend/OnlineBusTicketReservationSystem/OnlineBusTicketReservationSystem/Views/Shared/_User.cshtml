@@ -53,7 +53,8 @@
         <img class="logo hide2" height="100" style="margin-left: 35px !important; " src="~/assets/img/p1.png">
     
             <li><a asp-action="Index" asp-controller="Home">Contact</a></li>
-            <li><a class="nav-link scrollto" asp-action="Feedback" asp-controller="Home">Feedback</a></li>  
+            <li><a asp-action="Index" asp-controller="Home">Feedback</a></li>
+ 
            
             
              @{
@@ -71,18 +72,13 @@
                 </div></a>
               </li>
   
-              <li>
-                <a href="#">  
-                <div class="text-left">
-                  <i class="bi bi-person"></i>
-                  <span>Booked Tickets</span>
-                </div></a>
-              </li>
+            
   
               <li>
-                <a href="#">  
+                <a asp-action="History" asp-controller="Services">  
                 <div class="text-left">
-                  <i class="bi bi-person"></i>
+                 @*<i class="bi bi-ticket-detailed-fill"></i>*@
+                 <i class="bi bi-ticket-detailed"></i>
                   <span>Tickets History</span>
                 </div></a>
               </li>
@@ -90,7 +86,7 @@
               <li>
                 <a asp-action="Logout" asp-controller="Home">  
                 <div class="text-left">
-                  <i class="bi bi-person"></i>
+                 <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </div></a>
               </li>
@@ -159,7 +155,8 @@
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Services</a></li>
             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Contact</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a asp-action="Feedback" asp-controller="Home">Feedback</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Feedback</a></li>
+             
           </ul>
         </div>
 

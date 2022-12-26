@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sE+rujW4yf96DmXzhHEYH9Qvk0iCjK2X/7jOqde7kX8=",
+  "Hash": "/oopEaxmCvY48ztyleX3o7uLEU3mui9XKdeOVXAyr2g=",
   "Source": "OnlineBusTicketReservationSystem",
   "BasePath": "_content/OnlineBusTicketReservationSystem",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OnlineBusTicketReservationSystem.bundle.scp.css"
     },
     {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\css\\.css",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/css/.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\.css"
+    },
+    {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\css\\style.css",
       "SourceId": "OnlineBusTicketReservationSystem",
       "SourceType": "Discovered",
@@ -83,40 +100,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\style1.css"
-    },
-    {
-      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\css\\style2.css",
-      "SourceId": "OnlineBusTicketReservationSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
-      "BasePath": "_content/OnlineBusTicketReservationSystem",
-      "RelativePath": "assets/css/style2.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\style2.css"
-    },
-    {
-      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\css\\style3.css",
-      "SourceId": "OnlineBusTicketReservationSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
-      "BasePath": "_content/OnlineBusTicketReservationSystem",
-      "RelativePath": "assets/css/style3.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\style3.css"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\about.jpg",
@@ -168,6 +151,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\bus.png"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\busicon.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/busicon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\busicon.png"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\calender.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/calender.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\calender.png"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\clients\\client-1.png",
@@ -270,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\counts-img.jpg"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\driver.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/driver.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\driver.png"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\Extra Images\\apple-touch-icon.png",
@@ -731,6 +765,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\p5.png"
     },
     {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\p6.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/p6.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\p6.png"
+    },
+    {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\portfolio\\portfolio-1.jpg",
       "SourceId": "OnlineBusTicketReservationSystem",
       "SourceType": "Discovered",
@@ -933,6 +984,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\portfolio\\portfolio-details-3.jpg"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\seat.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/seat.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\seat.png"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\slide\\slide-17.jpg",
@@ -1139,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\Ticket.ico"
     },
     {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\img\\ticket.png",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/img/ticket.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\ticket.png"
+    },
+    {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\js\\jQuery.js",
       "SourceId": "OnlineBusTicketReservationSystem",
       "SourceType": "Discovered",
@@ -1188,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\one.js"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\js\\PDF.js",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "assets/js/PDF.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\PDF.js"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\assets\\js\\repeating.js",
@@ -9178,6 +9280,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\Organization_Logo\\aaa0015953.jpg",
+      "SourceId": "OnlineBusTicketReservationSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\",
+      "BasePath": "_content/OnlineBusTicketReservationSystem",
+      "RelativePath": "Organization_Logo/aaa0015953.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Organization_Logo\\aaa0015953.jpg"
     },
     {
       "Identity": "E:\\BusTicketSystem_.Net_Core_MVC\\Backend\\OnlineBusTicketReservationSystem\\OnlineBusTicketReservationSystem\\wwwroot\\Organization_Logo\\aaa0983030.jpg",

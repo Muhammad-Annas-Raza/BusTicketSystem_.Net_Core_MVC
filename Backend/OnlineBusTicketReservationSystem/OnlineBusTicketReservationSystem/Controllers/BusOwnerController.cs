@@ -125,12 +125,21 @@ namespace OnlineBusTicketReservationSystem.Controllers
             if (b.bus_NumberPlate != null && b.bus_ticketPrice != null && b.bus_noOfSeats != null && b.bus_category != null)
             {
                 tbl_user? row = await Tbl_user.GetRowById(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
-                
-                
+
+                int a;
                 b.bus_available = false;
                 b.fk_user_id = long.Parse(HttpContext.Session.GetString("UsrId") ?? "0");
-                b.Created_at = DateTime.Now;                 
-                    int a = await Tbl_bus.Create(b);
+                b.bus_OrganizationName = row.organization_name;
+                b.Created_at = DateTime.Now;
+                try
+                {
+                      a = await Tbl_bus.Create(b);
+                }
+                catch (Exception)
+                {
+                    TempData["msg7"] = "Bus Number already registered";
+                    return RedirectToAction("AddBus","BusOwner");
+                }
                     if (a > 0)
                     {
                         TempData["msg6"] = "Bus Added";
@@ -151,6 +160,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
                     }
                     a = await Tbl_discount.Create(new tbl_discount()
                     {
+                         discount_id = b.bus_id,
                          discount_0_TO_5 = 0,
                          discount_6_TO_12 = 0,
                          discount_13_TO_50 = 0,
@@ -162,7 +172,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
                 }
                     else
                     {
-                        TempData["msg7"] = "Failed to add Conductor";
+                        TempData["msg7"] = "Failed to add Bus";
                     }
                 
                 return RedirectToAction("AddBus", "BusOwner");
@@ -267,12 +277,36 @@ namespace OnlineBusTicketReservationSystem.Controllers
                 }
                 TempData["msg9"] = "Edit Successful";
                 await Tbl_user.Update(row);
-            }else if (Http_img == null)
+                List<tbl_bus> buses = await Tbl_bus.GetBusesfk_user_id(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+                foreach (tbl_bus i in buses)
+                {
+                    i.bus_OrganizationName = Orgname;
+                    int b = await Tbl_bus.Update(i);
+                    if (b<0)
+                    {
+                        break;
+                    }
+                }
+
+
+            }
+            else if (Http_img == null)
             {
                 row.organization_name = Orgname;
                 row.organization_description = OrgDes;
                 await Tbl_user.Update(row);
                 TempData["msg9"] = "Edit Successful";
+                List<tbl_bus> buses = await Tbl_bus.GetBusesfk_user_id(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+                foreach (tbl_bus i in buses)
+                {
+                    i.bus_OrganizationName = Orgname;
+                    int b = await Tbl_bus.Update(i);
+                    if (b < 0)
+                    {
+                        break;
+                    }
+                }
+
             }
             else
             {
@@ -285,10 +319,33 @@ namespace OnlineBusTicketReservationSystem.Controllers
 
 
 
+        public async Task<IActionResult> EditBus(long id)
+        {
+            tbl_bus? row = await Tbl_bus.GetRowById(id);
+           
+            return View(row);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditBus(tbl_bus b)
+        {
+            if (b.bus_category != null && b.bus_ticketPrice != null)
+            {
+                int a = await Tbl_bus.Update(b);
+                if (a>0)
+                {
+                    TempData["msg15"] = "Bus Updated";
+                }
+                else
+                {
+                    TempData["msg16"] = "Failed to Updated";
+                }
+            }
+
+            return RedirectToAction("EditBus","BusOwner");
+        }
 
 
 
 
-
-}
+    }
 }

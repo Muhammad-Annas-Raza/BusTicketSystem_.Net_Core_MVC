@@ -10,6 +10,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public tbl_user()
         {
             tbl_bus = new HashSet<tbl_bus>();
+            tbl_history = new HashSet<tbl_history>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -40,6 +41,7 @@ namespace OnlineBusTicketReservationSystem.Models
         public DateTime Created_at { get; set; }
 
         public ICollection<tbl_bus> tbl_bus { get; set; }   //<Many to one relation> b/c many buses can belong to one user
+        public ICollection<tbl_history> tbl_history { get; set; }   //<Many to one relation> b/c many history can belong to one user
 
 
     }

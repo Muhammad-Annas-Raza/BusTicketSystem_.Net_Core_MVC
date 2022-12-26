@@ -14,7 +14,7 @@
     }
     else if (context.HttpContext.Session.GetString("Role") == "User")
     {
-       Layout = "~/Views/Shared/_User.cshtml";
+       Layout = "~/Views/Shared/_ServicesLayout.cshtml";
         // Layout = null;
     }
  
@@ -143,3 +143,8 @@
       </div>      
       </div>      
       </div> 
+
+             @if (context.HttpContext.Session.GetString("Role") == "User")
+    {
+      <div style="margin-top:100px;"></div>
+    }

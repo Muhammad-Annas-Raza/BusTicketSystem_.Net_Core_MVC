@@ -29,9 +29,10 @@ namespace OnlineBusTicketReservationSystem.Models
         [StringLength(50)]
         [Required]
         public string? bus_category{ get; set; }
+        [StringLength(50)]
+        public string? bus_OrganizationName { get; set; }
         public bool bus_available{ get; set; }
         public DateTime Created_at { get; set; }
-
         [ForeignKey("tbl_user")]
         public long fk_user_id{ get; set; }             //<One to many relation> b/c one User can have many buses
         public virtual tbl_user? tbl_user { get; set; } //Navigational Property 

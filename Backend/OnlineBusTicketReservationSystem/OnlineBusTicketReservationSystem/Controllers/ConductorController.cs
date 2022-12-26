@@ -61,8 +61,9 @@ namespace OnlineBusTicketReservationSystem.Controllers
              
         }
         [HttpPost]
-        public async Task<IActionResult> EditBusDetails(tbl_bus b)
+        public async Task<IActionResult> EditBusDetails(tbl_bus b,string startingpoint, string Endpoint)
         {
+            b.bus_destination = startingpoint + " to " + Endpoint;
             int a =await Tbl_bus.Update(b);
             if (a > 0)
             {

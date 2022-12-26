@@ -1,0 +1,99 @@
+﻿@model OnlineBusTicketReservationSystem.Models.tbl_bus
+
+@{
+ 
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+ 
+
+  <div class="pagetitle">
+    <h1>Edit Bus Details</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Conductor">Home</a></li>
+        <li class="breadcrumb-item">Edit Bus Details</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <form asp-action="EditBus" asp-controller="BusOwner" method="post">
+  <section class="section">  
+  <div class="card">
+    <div class="card-body">
+      <input hidden asp-for="bus_id" class="form-control" />
+      <input hidden asp-for="Created_at" class="form-control" />
+      <input hidden asp-for="bus_NumberPlate" class="form-control" />
+      <input hidden asp-for="fk_user_id" class="form-control" />
+      <input hidden asp-for="bus_startingTime" class="form-control" />   
+      <input hidden asp-for="bus_destination" class="form-control" />   
+      <input hidden asp-for="bus_available" /> 
+      <input hidden asp-for="bus_noOfSeats" class="form-control" />
+        <input hidden asp-for="bus_OrganizationName" class="form-control" />
+
+      <div class="row mb-3 mt-5">
+                 
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Number Plate</b></label>
+                  <div class="col-md-8 col-lg-9">   
+                      <input disabled asp-for="bus_NumberPlate" class="form-control" />
+                  </div>
+              </div>
+  
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Organization Name</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input disabled asp-for="bus_OrganizationName" class="form-control" />
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus No. of Seats</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input disabled asp-for="bus_noOfSeats" class="form-control" />
+                      
+                  </div>
+              </div>
+                  <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Ticket Price</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input asp-for="bus_ticketPrice" class="form-control" />
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Bus Category</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <select asp-for="bus_category" class="form-select">
+                          <option value="" hidden>@Model.bus_category</option>
+                          <option value="Express" >Express</option>
+                          <option value="Luxury" >Luxury</option>
+                          <option value="Volvo (A/C)" >Volvo (A/C)</option>
+                          <option value="Volvo (Non A/C)" >Volvo (Non A/C)</option>
+                      </select>
+                  </div>
+              </div>
+ 
+     
+    
+               
+ 
+
+      <button  type="submit" class="button" style="font-size: 20px;"><span>Update</span></button>
+      <!-- End Bordered Table -->
+
+      <div class="text-success h3 p-3">@TempData["msg15"]</div>
+      <div class="text-danger h3 p-3">@TempData["msg16"]</div>      
+     </div>
+</div>
+
+</section>
+</form>
+
+
+
+ 
+
+
+
+
+ 

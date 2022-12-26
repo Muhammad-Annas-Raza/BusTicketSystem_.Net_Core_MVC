@@ -1,4 +1,4 @@
-﻿ 
+﻿@model tbl_feedback 
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -167,4 +167,44 @@ temperance meeting
 
  
     </section><!-- End Contact Section -->
+
+
+
+        <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Let us know about our self</h2>
+          <p>Feedback</p>
+        </div>
+
+        <div class="row">
+ 
+            <form asp-action="Feedback" method="post" asp-controller="Home">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input asp-for="feedback_username" type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input asp-for="feedback_useremail" type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input asp-for="feedback_subject" type="text" class="form-control" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea asp-for="feedback_Message" class="form-control" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="text-center">
+                   <!-- <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div> -->
+                <button class="btn btn-warning mt-5" type="submit">Send Feedback</button>               
+              </div>
+            </form>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
  

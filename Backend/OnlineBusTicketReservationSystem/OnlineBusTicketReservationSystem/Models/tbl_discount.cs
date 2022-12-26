@@ -9,7 +9,7 @@ namespace OnlineBusTicketReservationSystem.Models
     {
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long discount_id{ get; set; }
 
         //public int? discount_0_TO_5{ get; set; }

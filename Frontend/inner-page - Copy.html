@@ -34,13 +34,13 @@
     
     <!-- Other CSS File -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/style.css"> -->
-    <link href="../../Semester-2 Frontend/Other Backend/bus-CU/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="../../Semester-2 Frontend/Other Backend/bus-CU/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" /> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/bootstrapValidator.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/nice-select.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/util.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/jquery.seat-charts.css"> -->
-    <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/fonts/font-awesome/css/font-awesome.min.css"> -->
     <!-- <link href="../../Semester-2 Frontend/Other Backend/bus-CU/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" /> -->
     <!-- <link rel="stylesheet" href="../../Semester-2 Frontend/Other Backend/bus-CU/plugins/material-datetimepicker/bootstrap-material-datetimepicker.css" /> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Semester-2 Frontend/Other Backend/bus-CU/css/animate.css"> -->
@@ -253,16 +253,143 @@ div.seatCharts-seat.booked {
     font-family: Monospace;
 }
 
+/* ========================================= */
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding-inline-start: 0px !important;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: #99a2a8;
+    font-size: 9px;
+    width: calc(100%/6);
+    float: left;
+    position: relative;
+    font: 500 13px/1 "Roboto", sans-serif;
+}
+
+#progressbar li:nth-child(2):before {
+  content: "E:\BusTicketSystem_.Net_Core_MVC\Backend\OnlineBusTicketReservationSystem\OnlineBusTicketReservationSystem\wwwroot\assets\img";
+}
+
+#progressbar li:nth-child(3):before {
+  content: "\f145";
+}
+ 
+
+  #progressbar li:before {
+      content: "\f073";
+      font: normal normal normal 20px/30px FontAwesome;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      display: block;
+      background: #eaf0f4;
+      border-radius: 50%;
+      margin: 0 auto 10px auto;
+  }
+
+/* #progressbar li:not(:nth-child(1)):after {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background: #eaf0f4;
+    position: absolute;
+    left: -50%;
+    top: 21px;
+    z-index: -1;
+} */
+
+.text-red {
+    color: red;
+}
+
+/* #progressbar li:last-child:after {
+    width: 100%;
+} */
+
+/* #progressbar li.active {
+    color: #5cb85c;
+} */
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #5cb85c;
+    color: white;
+}
+
+
+@media (max-width:411px) {
+
+.seatCharts-seat.seatCharts-cell,
+.seatCharts-cell.seatCharts-space {
+    width: 31px;
+}
+
+main #progressbar li:before {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+}
+
+
+main #progressbar li:not(:nth-child(1)):after {
+    top: 18px;
+    /*z-index: -1;*/
+}
+}
+
+@media (max-width:352px) {
+    main #progressbar li:before {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+
+    main #progressbar li:not(:nth-child(1)):after {
+        top: 15px;
+    }
+}
+
+@media (max-width:322px) {
+
+    .seatCharts-seat.seatCharts-cell,
+    .seatCharts-cell.seatCharts-space {
+        width: 25px;
+    }
+    #progressbar{
+        display: none;
+    }
+}
+
+
+
+
 
 </style>
 
 
 
- <div id="putt" style="background-color: rgb(255, 255, 255);" class="container">  </div>
+ <div id="putt" style="background-color: rgb(255, 255, 255);" class="container"></div>
  
- 
+
  
  <div style="background-color: rgb(255, 255, 255);" class="container">
+ 
+  
+
+
+
+
+
+
+
+
+
       <!-- seat map -->
     <fieldset class="animated fadeIn" style="display: block;">
       <div id="seats">
@@ -282,19 +409,19 @@ div.seatCharts-seat.booked {
 
                   <div class="row">
                     <div class="col-2 m-1 seatCharts-cell seatCharts-space">1</div>
-                    <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="col-2 m-1 seatCharts-seat seatCharts-cell available">1</div>
+                    <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" onclick="cgcolor()" class="box col-2 m-1 seatCharts-seat seatCharts-cell available">1</div>
                     <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="col-2 m-1 seatCharts-seat seatCharts-cell booked">2</div>
                     <div class="col-2 m-1 seatCharts-seat seatCharts-cell"></div>
-                    <div class="col-2 m-1 seatCharts-seat seatCharts-cell available">3</div>
-                    <div class="col-2 m-1 seatCharts-seat seatCharts-cell available">4</div>                    
+                    <div onclick="cgcolor(3)" id="3"  class="box col-2 m-1 seatCharts-seat seatCharts-cell available">3</div>
+                    <div onclick="cgcolor(4)" id="4"  class="box col-2 m-1 seatCharts-seat seatCharts-cell available">4</div>                    
                 </div>
                 <div class="row">
                   <div class="col-3 m-1 seatCharts-cell seatCharts-space">2</div>
-                  <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="col-3 m-1 seatCharts-seat seatCharts-cell available">5</div>
+                  <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" onclick="cgcolor()"  class="box col-3 m-1 seatCharts-seat seatCharts-cell available">5</div>
                   <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="col-3 m-1 seatCharts-seat seatCharts-cell booked">6</div>
                   <div class="col-3 m-1 seatCharts-seat seatCharts-cell"></div>
-                  <div class="col-3 m-1 seatCharts-seat seatCharts-cell available">7</div>
-                  <div class="col-3 m-1 seatCharts-seat seatCharts-cell available">8</div>                  
+                  <div onclick="cgcolor(7)" id="7"  class="box col-3 m-1 seatCharts-seat seatCharts-cell available">7</div>
+                  <div onclick="cgcolor(8)" id="8"  class="box col-3 m-1 seatCharts-seat seatCharts-cell available">8</div>                  
               </div>
                 
                 
@@ -376,6 +503,8 @@ for (let index = 0; index < 2; index++) {
 }
 
 document.getElementById("putt").innerHTML=data;
+ 
+ 
   </script>
 
 
@@ -478,4 +607,24 @@ document.getElementById("putt").innerHTML=data;
 </body>
 
 </html>
- 
+
+
+
+<script>
+
+
+  
+function cgcolor(a){
+                                
+                                const boxes = document.querySelectorAll('.box');
+                              
+                              boxes.forEach(box => {
+                              if (box.style.backgroundColor = "#307701") { box.style.backgroundColor = "#969696"}
+                              });
+                              
+                              document.getElementById(a).style.backgroundColor="#307701"
+                                
+                                }
+                              
+                               
+</script>

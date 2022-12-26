@@ -22,6 +22,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
         private readonly IRepository<tbl_discount> Tbl_discount;
         private readonly IRepository<tbl_sale> Tbl_sale;
         private readonly IRepository<tbl_user> Tbl_user;
+        private readonly IRepository<tbl_feedback> Tbl_feedback;
         private readonly ServiceMethods s;
 
         public HomeController
@@ -33,7 +34,8 @@ namespace OnlineBusTicketReservationSystem.Controllers
             IRepository<tbl_busSeats> Tbl_busSeats,
             IRepository<tbl_discount> Tbl_discount,
             IRepository<tbl_sale> Tbl_sale,
-            IRepository<tbl_user> Tbl_user
+            IRepository<tbl_user> Tbl_user,
+            IRepository<tbl_feedback> Tbl_feedback
             )
         {
             this.context = context;
@@ -44,6 +46,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
             this.Tbl_discount = Tbl_discount ;
             this.Tbl_sale = Tbl_sale ;
             this.Tbl_user = Tbl_user ;
+            this.Tbl_feedback = Tbl_feedback  ;
             s = new ServiceMethods(Tbl_user);
         }
  
@@ -141,17 +144,32 @@ namespace OnlineBusTicketReservationSystem.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        [Authorize(Roles = "User")]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Feedback()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "User")]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+ 
+     
+ 
         [HttpPost]
-        public IActionResult Feedback(tbl_feedback f)
+        public async Task<IActionResult> Feedback(tbl_feedback f)
+        {
+            if (f.feedback_username != null && f.feedback_useremail != null && f.feedback_subject != null && f.feedback_Message != null)
+            {
+                f.Created_at = DateTime.Now;
+                int a = await Tbl_feedback.Create(f);
+
+                try
+                {
+                    if (f.feedback_useremail != null)
+                    {
+                        f.feedback_useremail.Send_FeedbackEmail(f.feedback_username ?? "");
+                    }
+                }
+                catch (Exception)
+                {
+                }
+                if (a > 0) { return RedirectToAction("Thanks", "Home"); }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+        public IActionResult Thanks()
         {
             return View();
         }
