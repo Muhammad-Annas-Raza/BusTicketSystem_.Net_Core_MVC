@@ -1,0 +1,139 @@
+﻿@model tbl_history 
+@{
+   Layout = "~/Views/Shared/_ServicesLayout.cshtml";
+}
+ 
+<div class="container">
+<div class="col-md-12">
+  <div class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-3 bus-image text-center" style=" text-align:center;
+  margin:auto 0;">
+                  <img src="~/assets/img/logo2.png" alt="bus" height="130" width="130">
+              </div>
+              <div class="col-md-9 bus-details">                 
+
+ 
+
+                  <h3 class="card-title bus-name">@Model.history_CustomerName (<span class="bus-type fs-13">@Model.history_CustomerAge years old</span>)</h3>
+                  <div class="row card-text m-b-10 bus-description">
+                 
+                       <div class="col-sm-6 fs-14" >
+                          <img src="~/assets/img/busicon.png" height="18" style="margin-left:-2px !important;"/> Bus Number:
+                          <span class="p-r-5 fr">@Model.history_CustomerBusNumber</span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                         <img src="~/assets/img/p6.png" height="18" style="margin-left:-2px !important;"/> Organization Name:
+                          <span class="p-r-5 fr">@Model.history_CustomerBusOrganizationName</span>
+                      </div>
+                      
+                      
+                      <div class="col-sm-6 fs-14">
+                           <i class="bi bi-smartwatch" style="font-size: 13px;"></i> Departure: <span class="p-r-5 fr">@Model.history_CustomerBusStartingTime</span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                         <i class="fa fa-road"></i> Route:
+                          <span class="p-r-5 fr">@Model.history_CustomerDestination</span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                          <img src="~/assets/img/seat.png" height="18" style="margin-left:-2px !important;"/> Seat #:
+                          <span class="p-r-5 fr">@Model.history_CustormerSeatno </span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                          <i class="bi bi-cash"></i> Fare:
+                          <span class="p-r-5 fr">@Model.history_CustomerTicketPrice - @Model.history_CustomerDiscountPercentage % = @Model.history_CustomerDiscountedTicketPrice <span class="text-success">Rs.</span></span>
+                      </div>
+
+
+                      
+                       <div class="col-sm-6 fs-14">
+                          <i class="bi bi-stack"></i> Bus Category:
+                          <span class="p-r-5 fr">@Model.history_CustomerBusCategory</span>
+                      </div>
+                      <div class="col-sm-6 fs-14">
+                         <i class="bi bi-ticket-detailed"></i> Ticket Booking Time:
+                          <span class="p-r-5 fr" id="bookingtime"> </span>
+                      </div>
+
+
+
+
+ 
+
+
+                  </div>
+                  
+                  
+                  <div id="mydiv" class="p-t-13">
+                      <a onclick="generatepdf()" class="btn btn-circle btn-success book_btn mt-3" data-bus="1">Download</a>
+                      <a onclick="printf()" class="btn btn-circle btn-outline-success book_btn mt-3" data-bus="1">Print</a>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  <div id="mydiv1" class="p-t-13 d-none mt-5 text-center">
+                      <code class="h6" style="background-color:#c7254e;color:white;padding:3px 7px 3px 7px;"><b>Print / take screenshot or save as pdf and show at the time of paying</b></code>
+                      </div>
+   <div style="margin-top:150px;"></div>
+
+   @*Add this to download pdf*@
+  @*<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>*@
+ <script src="~/assets/js/PDF.js" ></script> 
+ 
+
+ 
+                          <script>
+
+                              var array = `@Model.Created_at`.split(" ")
+                              document.getElementById('bookingtime').innerHTML=array[0]+`<br />`+array[1]+` `+array[2]
+                        
+
+                          function printf(){
+                            // var a = document.body.innerHTML
+                             //document.body.innerHTML=
+                               document.getElementById('mydiv').classList.add('d-none')                 
+                               document.getElementById('header').classList.add('d-none')                 
+                               document.getElementById('footer').classList.add('d-none')      
+                               document.getElementById('mydiv1').classList.remove('d-none')      
+                                
+                              window.print();
+                               document.getElementById('mydiv').classList.remove('d-none')                 
+                               document.getElementById('header').classList.remove('d-none')                 
+                               document.getElementById('footer').classList.remove('d-none')                 
+                               document.getElementById('mydiv1').classList.add('d-none')                 
+                              //document.body.innerHTML = a;
+
+
+
+                          }
+
+
+
+
+
+                          function generatepdf(){
+                                event.preventDefault();
+   
+       
+                               document.getElementById('mydiv').classList.add('d-none')                 
+                               document.getElementById('header').classList.add('d-none')                 
+                               document.getElementById('footer').classList.add('d-none')      
+                               document.getElementById('mydiv1').classList.remove('d-none')         
+        var element = document.body.innerHTML;
+                               document.getElementById('mydiv').classList.remove('d-none')                 
+                               document.getElementById('header').classList.remove('d-none')                 
+                               document.getElementById('footer').classList.remove('d-none')                 
+                               document.getElementById('mydiv1').classList.add('d-none') 
+  
+        //easy
+        html2pdf().from(element).save();
+ 
+    } 
+                          
+                          
+                          </script>

@@ -1,0 +1,41 @@
+[33mcommit d63138a627a5bbd405e8ec180d3e324f827bd38f[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: = <=>
+Date:   Sat Dec 10 17:04:57 2022 +0500
+
+    Seperate Book_Your_Ticket and Drive_Your_Bus_with_Us register pages
+
+[33mcommit 53af806e6b5b31674235855703d6b971c78e352a[m
+Author: = <=>
+Date:   Sat Dec 10 14:50:51 2022 +0500
+
+    Set DataBase Relation and put Price Fields as Decimal
+
+[33mcommit 63257f50837b841d341810ed218dedb3d593a85d[m
+Author: = <=>
+Date:   Sat Dec 10 04:27:03 2022 +0500
+
+    Finally done EF Core 6 Work <Code First Approach>
+
+[33mcommit 496cba9377752b9a119b64fbfbc8220766c5d3e4[m
+Author: = <=>
+Date:   Fri Dec 9 23:45:48 2022 +0500
+
+    Setting Frontend
+
+[33mcommit 97423e97deb7182c5ad3f93a8043725209c28f47[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Muhammad Annas Raza <117452932+Muhammad-Annas-Raza@users.noreply.github.com>
+Date:   Fri Dec 9 23:34:11 2022 +0500
+
+    Update README.md
+
+[33mcommit c0d7b136522018b39aed5aed85891d18cdc8658d[m
+Author: Muhammad Annas Raza <117452932+Muhammad-Annas-Raza@users.noreply.github.com>
+Date:   Fri Dec 9 23:32:41 2022 +0500
+
+    Update README.md
+
+[33mcommit 1b75b02c30e117fa746039a3827ad8481fab5edf[m
+Author: Muhammad Annas Raza <117452932+Muhammad-Annas-Raza@users.noreply.github.com>
+Date:   Fri Dec 9 23:30:12 2022 +0500
+
+    Initial commit

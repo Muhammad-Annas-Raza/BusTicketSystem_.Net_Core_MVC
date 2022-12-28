@@ -1,0 +1,77 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
+
+ 
+
+    <script type="text/javascript">
+    $(document).ready(function($) 
+    { 
+  
+      $(document).on('click', '.btn_print', function(event) 
+      {
+        event.preventDefault();
+  
+        //credit : https://ekoopmans.github.io/html2pdf.js
+        
+        var element = document.getElementById('container_content'); 
+  
+        //easy
+        html2pdf().from(element).save();
+  
+        //custom file name
+        //html2pdf().set({filename: 'code_with_mark_'+js.AutoCode()+'.pdf'}).from(element).save();
+  
+  
+        //more custom settings
+        // var opt = 
+        // {
+        //   margin:       1,
+        //   filename:     'pageContent_'+js.AutoCode()+'.pdf',
+        //   image:        { type: 'jpeg', quality: 0.98 },
+        //   html2canvas:  { scale: 2 },
+        //   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        // };
+  
+        // New Promise-based usage:
+        // html2pdf().set(opt).from(element).save();
+  
+         
+      });
+  
+   
+   
+    });
+    </script>
+
+
+
+
+
+
+
+    <!-- <script type="text/javascript">
+        $("#btnPrint").live("click", function () {
+            var divContents = $("#dvContainer").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script> -->
+</head>
+<body>
+    <form id="form1">
+    <div id="container_content">
+        This content needs to be printed.
+    </div>
+    <input type="button" value="Print Div Contents" class="btn_print" />
+    </form>
+</body>
+</html>

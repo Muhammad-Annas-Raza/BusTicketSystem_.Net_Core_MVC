@@ -1,0 +1,227 @@
+﻿@model IEnumerable<tbl_busSeats>
+@{
+   Layout = "~/Views/Shared/_ServicesLayout.cshtml";
+}
+
+ <div style="background-color: rgb(255, 255, 255);" class="container p-2">
+ 
+ 
+
+      <!-- seat map -->
+     <fieldset class="animated fadeIn" style="display: block;">
+      <div id="seats">
+          <div class="row no-gutters">
+              <div class="col-md-6">
+              @*<div class="col-lg-6 col-xl-6 col-sm-7 col-md-6">*@
+                  <!-- <div id="seat-map" class="row seatCharts-container" tabindex="0"> -->
+                      <div class="row">
+                      <div class="col-2 seatCharts-cell seatCharts-space"></div> 
+                      <div class="col-2 m-3 seatCharts-cell seatCharts-space">
+                          <div style="height:20px;width:20px;background-color:#980303;margin-left:15px;"></div>
+                          <b>Booked</b>
+                      </div> 
+                      <div class="col-2 m-3 seatCharts-cell seatCharts-space">
+                          <div style="height:20px;width:20px;background-color:#969696;margin-left:15px;"></div>
+                          <b>Available</b>
+                      </div>  
+                      <div class="col-2 m-3 seatCharts-cell seatCharts-space">
+                          <div style="height:20px;width:20px;background-color:green;margin-left:15px;"></div>
+                          <b>Selected</b>
+                      </div>                       
+                     </div>
+                     <div class="row">
+                      <div class="col-2 m-2 seatCharts-cell seatCharts-space"></div> 
+                      <div class="col-2 m-2 seatCharts-cell seatCharts-space"></div> 
+                      <div class="col-2 m-2 seatCharts-cell seatCharts-space"></div> 
+                      <div class="col-2 m-2 seatCharts-cell seatCharts-space"></div> 
+                      <div  class="m-2 col-2">
+                        <img src="~/assets/img/driver.png"  alt="Driver" height="">
+                    </div>
+                     </div>
+                    @{
+                        var j = 1;
+                        var k = 1;
+                        foreach (tbl_busSeats i in Model)
+                        {
+                                                                                   <div style=" display: inline-block;">  @{
+                                if(k==5){
+                                k = 1; 
+                            }}
+                                                                                    </div>
+
+
+                                                                                <div style=" display: inline-block;">
+                                                                                @{
+                                if(k==1){
+                                                          
+                                                                                                                                <div class="col-2 seatCharts-cell seatCharts-space">@j</div>
+                                                
+                                        j=j+1;
+                                    }
+                                                                            }
+                                                                          </div>  
+ 
+                                          
+                                                    <div style=" display: inline-block;">
+                                                    @{
+
+                                if (@i.busSeat_isBooked == true) {                
+                                                                                                                                                <div role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="col-2 seatCharts-seat seatCharts-cell booked">@i.busSeat_SeatNumber</div>
+                                }else if (@i.busSeat_isBooked == false)
+                                {
+                                                                                                                                                <div onclick="cgcolor(@i.busSeat_SeatNumber,@i.busSeat_id,@i.fk_bus_id)" id="@i.busSeat_SeatNumber" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="box col-2 seatCharts-seat seatCharts-cell available">@i.busSeat_SeatNumber</div>
+                                }
+                                
+                                                                                    }
+                                                                                    </div>
+
+                                
+                                    
+                                                                                    <div style=" display: inline-block;">
+                                                                                    @{
+                                    if (@i.busSeat_SeatNumber % 2 == 0) {                
+                                                                                                                                            <div class="col-2  seatCharts-seat seatCharts-cell"></div>
+                                }
+                                                                                }
+                                                                                </div>
+
+                                        
+                                             
+                                    if (k == 4) {                
+                                                                            <br />
+                                                     
+                                                     
+                                }
+                                            
+                                        //<i>@k</i>
+                                    
+
+
+                            k++;
+                     
+                            }
+
+
+
+
+
+
+
+
+
+                       }   
+                                  </div>
+             
+
+    <div class="col-md-6 text-center mt-5">
+    @*<div class="col-lg-6 col-xl-6 col-sm-5 col-md-6 mt-5">*@
+                  <div class="booking-details">
+                      <h2 class="header">Booking Details
+                          <span class="number_plate badge badge-primary fs-12"></span></h2>
+                     
+                          <h3> Selected Seat # <span id="seat_no"></span>:</h3>
+                          <h3> Ticket Price @ViewBag.TicketPrice <span class="text-success">Rs.</span></h3>
+
+                                 <form asp-action="BookTicket" method="post" asp-controller="Services"> 
+                           <section class="section">  
+   <div class="card">
+    <div class="card-body"> 
+      
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-5 col-lg-5 col-form-label"><b>Passenger Name</b></label>
+                  <div class="col-md-7 col-lg-7">
+                        <input hidden id="bus_id" name="bus_id"/>
+                        <input hidden id="busSeat_id" name="busSeat_id"/>
+                          <input hidden  name="ticket_price" value="@ViewBag.TicketPrice"/>
+                      <input name="name" type="text" class="form-control" />
+                  </div>
+              </div> 
+              <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-5 col-lg-5 col-form-label"><b>Passenger Age</b></label>
+                  <div class="col-md-7 col-lg-7">
+                      <input name="age" min="1" type="number" class="form-control" />
+                  </div>
+              </div>
+@*   
+    <div class="card mt-5">
+    <div class="card-body"> *@
+        <b>Note : </b>
+        <ul style="list-style: none;margin-left:-25px ;">
+             <li><i class="clrr ri-check-double-line"></i>&nbsp; <h3 style="display:inline-block;"> You can select one seat at a time</h3></li>  
+             <li><i class="clrr ri-check-double-line"></i>&nbsp; <h3 style="display:inline-block;"> You can get discount on basis of age</h3></li>  
+            @*<li><h3> You can select one seat at a time</h3></li>
+            <li><h3> You can get discount on basis of age</h3></li>*@
+        </ul>
+                      <input hidden id="mySubmit"  type="submit" onclick="myfun()"/>
+         
+    </div>
+</div>
+ 
+</section>
+    </form>
+ 
+                       
+                      <!-- <p>Total: <b><span id="total">0</span> Kes</b></p> -->
+                      <br>
+                  </div>
+                  <!-- <div id="legend" class=""></div> -->
+              </div>
+         
+          </div>
+      </div>
+      <div class="row text-center">
+
+          <p class="h5 text-danger">@TempData["msg17"]</p>
+          </div>
+      <div class="row text-center">
+        <div class="col">          
+          <button onclick="his()" class="btn btn-outline-success m-1 mb-3">Back</button>
+          <button onclick="myfun()" type="submit" class="btn btn-success m-1 mb-3">Continue</button>          
+        </div>
+ 
+          
+      </div>
+      
+  </fieldset>
+  
+          
+  <!-- END SEAT MAP -->
+</div>
+
+
+
+ 
+
+
+                            <script>
+
+
+
+  
+function cgcolor(a,b,c){
+                                
+                                const boxes = document.querySelectorAll('.box');
+                              
+                              boxes.forEach(box => {
+                              if (box.style.backgroundColor = "#307701") { box.style.backgroundColor = "#969696"}
+                              });
+                               
+                              document.getElementById(a).style.backgroundColor="#307701"
+                              document.getElementById('seat_no').innerHTML=a
+                              document.getElementById('busSeat_id').value=b
+                              document.getElementById('bus_id').value=c
+                                
+                                                                
+}
+
+function myfun(){
+    document.getElementById('mySubmit').click();
+}
+
+
+
+                                function his(){
+                                  history.back()
+                                }
+
+                            </script>

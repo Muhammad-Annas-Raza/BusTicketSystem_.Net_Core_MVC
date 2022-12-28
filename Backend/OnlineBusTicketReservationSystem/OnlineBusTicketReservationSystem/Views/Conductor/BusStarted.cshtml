@@ -1,0 +1,35 @@
+﻿ 
+@{
+	  Layout = "~/Views/Shared/_ConductorLayout.cshtml";
+}
+
+
+<div class="pagetitle">
+    <h1>Bus Started</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="">Home</a></li>
+            <li class="breadcrumb-item">Bus Started</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<section class="section">
+  <div class="card">
+    <div class="card-body">
+          
+    <div>
+                <div class="row text-center">
+                    <a asp-action="Logout" class="display-5" asp-controller="Home">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Sign Out</span>
+                    </a>
+                </div>
+        <div class="row">
+            <img  src="~/assets/img/bus.gif" class="img-fluid"/>
+        </div>
+       
+
+        </div>
+      </div>
+    </div>
+ </section>
