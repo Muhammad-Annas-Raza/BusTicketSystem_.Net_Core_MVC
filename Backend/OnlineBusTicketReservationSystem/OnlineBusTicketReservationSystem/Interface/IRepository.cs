@@ -30,6 +30,8 @@ namespace OnlineBusTicketReservationSystem.Interface
         Task<List<tbl_bus>> GetVolvoNonACBus();
         Task<List<tbl_busSeats>> GetBusSeats(long id);
         Task<List<tbl_history>> GetUserHistory(long id);
+        Task<List<tbl_bus>> GetAvailableBus(long id);
+        Task<List<tbl_sale>> GetSale(long id);
 
       
     }

@@ -124,6 +124,7 @@ namespace OnlineBusTicketReservationSystem.Controllers
                     {
                        Sale_busCategory = row.bus_category,
                        Sale_busDestination = row.bus_destination,
+                       Sale_busNumber =row.bus_NumberPlate,
                        Sale_busStartingTime = (DateTime)row.bus_startingTime,
                        sale_TotalnoOfSeats = (int)row.bus_noOfSeats,
                        sale_noOfSoldSeats = bookedSeates,

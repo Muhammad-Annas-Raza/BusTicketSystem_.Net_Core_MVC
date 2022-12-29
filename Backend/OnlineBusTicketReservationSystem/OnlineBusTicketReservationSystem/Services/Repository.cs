@@ -258,6 +258,7 @@ namespace OnlineBusTicketReservationSystem.Services
         {
             return await db_context.tbl_bus.Where(m => m.bus_category == "Luxury" && m.bus_available == true).ToListAsync();
         }
+       
          
         public async Task<List<tbl_bus>> GetVolvoACBus()
         {
@@ -278,7 +279,15 @@ namespace OnlineBusTicketReservationSystem.Services
             return await db_context.tbl_history.Where(m => m.fk_user_id == id).OrderByDescending(m => m.history_id).ToListAsync();
         }
 
-
+        public async Task<List<tbl_bus>> GetAvailableBus(long id)
+        {
+            return await db_context.tbl_bus.Where(m => m.bus_available == true  && m.fk_user_id == id).ToListAsync();
+        }
+        
+        public async Task<List<tbl_sale>> GetSale(long id)
+        {
+            return await db_context.tbl_sale.Where(m => m.fk_user_id == id).ToListAsync();
+        }
 
 
     }

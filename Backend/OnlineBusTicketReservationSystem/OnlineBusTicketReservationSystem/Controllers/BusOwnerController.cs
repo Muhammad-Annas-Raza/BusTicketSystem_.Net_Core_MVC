@@ -43,9 +43,11 @@ namespace OnlineBusTicketReservationSystem.Controllers
             this.Tbl_user = Tbl_user;
             this.hostEnvironment = hostEnvironment;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<tbl_bus> lst = await Tbl_bus.GetAvailableBus(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+
+            return View(lst);
         }
         [AllowAnonymous]
         public IActionResult Waiting()
@@ -319,6 +321,12 @@ namespace OnlineBusTicketReservationSystem.Controllers
 
 
 
+        public async Task<IActionResult> Sale()
+        {
+            List<tbl_sale> rows = await Tbl_sale.GetSale(long.Parse(HttpContext.Session.GetString("UsrId") ?? "0"));
+           
+            return View(rows);
+        }
         public async Task<IActionResult> EditBus(long id)
         {
             tbl_bus? row = await Tbl_bus.GetRowById(id);
