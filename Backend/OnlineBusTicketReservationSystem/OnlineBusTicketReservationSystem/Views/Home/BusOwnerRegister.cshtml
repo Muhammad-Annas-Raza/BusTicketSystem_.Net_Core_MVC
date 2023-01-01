@@ -1,0 +1,169 @@
+﻿@model tbl_user
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SRC Travel Agencies</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="~/assets/img/logo2.png" rel="icon">
+  <link href="~/assets/img/logo2.png" rel="apple-touch-icon">
+  <script src="~/assets/js/jQuery.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="~/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+<!-- 
+              <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="~/assets/img/logo.png" alt="">
+                  <span class="d-none d-lg-block">NiceAdmin</span>
+                </a>
+              </div>End Logo -->
+
+              <a asp-action="Index" asp-controller="Home">
+                <div class="row">
+                    <div class="col-3">
+                        <span class="d-lg-block p-2"><img class="img-fluid" height="150" width="150" src="~/assets/img/logo2.png" /></span>                                        
+                    </div>
+                    <div class="col">
+                        <h1 style="color: #444444; margin-top: 10px;">Travel Agencies</h1>
+                    </div>
+                </div>                                              
+            </a>
+              <div class="card mb-3 bshdw">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
+                  </div>
+
+                  <form class="row g-3 needs-validation" method="post"asp-action="BusOwnerRegister" asp-controller="Home">
+                    <div class="col-12">
+                      <label asp-for="user_name" class="form-label">Your Name</label>
+                      <input asp-for="user_name" type="text" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label asp-for="user_email_phone" class="form-label">Your Email</label>
+                      <input type="email" asp-for="user_email_phone" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="organization_name" class="form-label">Bus Organization Name</label>
+                        <input type="text" asp-for="organization_name" class="form-control" id="yourName" required>
+                        <div class="invalid-feedback">Please, enter your name!</div>
+                      </div>
+
+                    <div class="col-12">
+                      <label asp-for="user_password" class="form-label">Password</label>
+                      <input type="password" asp-for="user_password" class="form-control mypas" id="yourPassword" required>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label asp-for="user_confirmPassword" class="form-label">Confirm Password</label>
+                      <input type="password" asp-for="user_confirmPassword" class="form-control mypas" id="yourPassword" required>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input chkbox" type="checkbox"
+                                   name="remember"
+                                   value="true" id="rememberMe">
+                            <label class="form-check-label"
+                                   for="showpassword">show password?</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a asp-action="Login" asp-controller="Home" class="text-primary">Log in</a></p>
+                    </div>
+                       <div class="col-12">
+                                        <div class="text-danger text-center">
+                                           <b>@TempData["msg2"]</b>
+                                        </div> 
+                                    </div>
+                  </form>
+
+                </div>
+              </div>
+ 
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="~/assets/vendor/aos/aos.js"></script>
+  <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="~/assets/js/main.js"></script>
+  <script src="~/assets/js/one.js"></script>
+
+ 
+
+</body>
+
+</html>

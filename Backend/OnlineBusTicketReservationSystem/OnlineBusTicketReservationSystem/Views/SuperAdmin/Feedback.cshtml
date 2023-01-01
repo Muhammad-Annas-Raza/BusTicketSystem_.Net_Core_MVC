@@ -1,0 +1,102 @@
+﻿@model IEnumerable<tbl_feedback>
+@{
+    Layout = "~/Views/Shared/_SuperAdminLayout.cshtml";    
+}
+  <div class="pagetitle">
+    <h1>Feedback</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="SuperAdmin">Home</a></li>
+        <li class="breadcrumb-item">Feedback</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+
+  <div class="card">
+    <div class="card-body">
+     
+      <div class="input-group mb-3">
+        <div class="form-outline">
+          <input style="line-height: 18px;border: 1px solid grey;" id="id" onkeyup="srch()" class="form-control mt-5" placeholder="Search" />
+        </div>
+        <button type="button" class="btn btn-primary h-25 mt-5">
+          <i class="bx bx-search"></i>
+        </button>
+        </div>
+      <br>
+      <div>
+
+     <!-- Bordered Table -->
+      <table id="exam" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <!-- <th scope="col" class="text-center table-active">User id</th> -->
+            <th scope="col"  class="text-center table-dark">Serial no.</th>
+            <th scope="col" class="text-center table-dark">Name</th>
+            <th scope="col" class="text-center table-dark">Email</th>
+            <th scope="col" class="text-center table-dark">Subject</th>
+            <th scope="col" class="text-center table-dark">Message</th>
+            <th scope="col" class="text-center table-dark">Feedback Time</th>
+ 
+          </tr>
+        </thead>
+        <tbody>
+@{
+           var j = 1;
+
+
+ foreach (tbl_feedback i in Model)
+           {
+           <tr class="xyz">
+           <td class="text-center"><b>@j</b></td>             
+           <td class="text-center Usr_name">@i.feedback_username</td>
+           <td class="text-center usr_email">@i.feedback_useremail</td>     
+           <td class="text-center">@i.feedback_subject</td>
+           <td class="text-center">@i.feedback_Message</td> 
+           <td class="text-center org_name">@i.Created_at</td>            
+         </tr>
+         j++;
+           }
+     }
+        </tbody>
+      </table>
+      <!-- End Bordered Table -->
+
+      </div>
+     </div>
+</div>
+</section>
+
+ 
+<script>
+     
+ function srch(){
+    let filter = document.getElementById('id').value.toUpperCase();
+    let myTable = document.getElementById('exam');
+    let whole_table = document.querySelectorAll('.xyz');
+    
+    let tr = myTable.getElementsByClassName("Usr_name")
+    let tr1 = myTable.getElementsByClassName("usr_email")
+    let tr2 = myTable.getElementsByClassName("org_name")
+    for(var i=0; i<tr.length; i++) {
+      let td = tr[i].textContent || td.innerHTML;
+      let td1 = tr1[i].textContent || td.innerHTML;
+      let td2 = tr2[i].textContent || td.innerHTML;
+    if(td) {
+            if(td.toUpperCase().indexOf(filter) > -1 || td1.toUpperCase().indexOf(filter) > -1 || td2.toUpperCase().indexOf(filter) > -1){
+               console.log(whole_table[i].style.display = "")
+            }else{
+              whole_table[i].style.display = "none"
+            }
+          }
+        }
+      }
+    
+    
+</script>    
+
+
+

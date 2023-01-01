@@ -1,0 +1,62 @@
+﻿@model tbl_discount
+
+@{
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+
+
+
+  <div class="pagetitle">
+    <h1>Edit Discount</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="BusOwner">Home</a></li>
+        <li class="breadcrumb-item">Edit Discount</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+      <form asp-action="EditDiscount" asp-controller="BusOwner" method="post">
+                     <input hidden type="number" class="form-control" value-"Model.discount_id" asp-for="discount_id">
+                      <input hidden type="number" class="form-control" value-"Model.fk_bus_id" asp-for="fk_bus_id">
+  <section class="section">  
+  <div class="card">
+    <div class="card-body">
+     
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Discount b/w age 0 - 5</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control" value-"Model.discount_0_TO_5" asp-for="discount_0_TO_5">
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Discount b/w age 6 - 12</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control" value-"Model.discount_6_TO_12" asp-for="discount_6_TO_12">
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Discount b/w age 13 - 50</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control mypas" value-"Model.discount_13_TO_50" asp-for="discount_13_TO_50">
+                  </div>
+              </div>
+      <div class="row mb-3 mt-5">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"><b>Discount above age 51</b></label>
+                  <div class="col-md-8 col-lg-9">
+                      <input required type="number" class="form-control mypas" value-"Model.discount_51" asp-for="discount_51">
+                  </div>
+              </div> 
+ 
+
+      <button  type="submit" class="button" style="font-size: 20px;"> <i class='bx bx-plus'><span>Add Discount</span></i></button>
+      <!-- End Bordered Table -->
+     
+     </div>
+</div>
+
+</section>
+</form>
+
+ 

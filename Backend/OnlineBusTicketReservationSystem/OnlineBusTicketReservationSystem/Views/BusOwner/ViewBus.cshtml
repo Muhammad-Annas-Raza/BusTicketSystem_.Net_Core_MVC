@@ -1,0 +1,72 @@
+﻿@model IEnumerable<tbl_bus>
+@{
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+
+
+  <div class="pagetitle">
+    <h1>View Conductors</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="BusOwner">Home</a></li>
+        <li class="breadcrumb-item">View</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="form-outline">
+          <input style="line-height: 18px;border: 1px solid grey;" id="id" onkeyup="srch()" class="form-control mt-5" placeholder="Search" />
+        </div>
+        <button type="button" class="btn btn-primary h-25 mt-5">
+          <i class="bx bx-search"></i>
+        </button>
+        </div>
+      <br>
+      
+    <div id="update_5">
+      <!-- Bordered Table -->
+    <partial name="_ViewBus" model="Model"/> 
+      <!-- End Bordered Table -->
+      </div>
+     </div>
+</div>
+</section>
+
+   
+ 
+<script>
+     
+  function srch(){
+    let filter = document.getElementById('id').value.toUpperCase();
+    let myTable = document.getElementById('exam');
+    let whole_table = document.querySelectorAll('.xyz');
+    
+    let tr = myTable.getElementsByClassName("Usr_name")
+    let tr1 = myTable.getElementsByClassName("usr_email")
+    let tr2 = myTable.getElementsByClassName("org_name")
+    let tr3 = myTable.getElementsByClassName("nmbre_plate")
+    for(var i=0; i<tr.length; i++) {
+      let td = tr[i].textContent || td.innerHTML;
+      let td1 = tr1[i].textContent || td.innerHTML;
+      let td2 = tr2[i].textContent || td.innerHTML;
+      let td3 = tr3[i].textContent || td.innerHTML;
+    if(td) {
+            if(td.toUpperCase().indexOf(filter) > -1 || td1.toUpperCase().indexOf(filter) > -1 || td2.toUpperCase().indexOf(filter) > -1 || td3.toUpperCase().indexOf(filter) > -1){
+               console.log(whole_table[i].style.display = "")
+            }else{
+              whole_table[i].style.display = "none"
+            }
+          }
+        }
+      }
+    
+    
+</script>
+

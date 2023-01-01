@@ -1,0 +1,31 @@
+﻿@model tbl_user
+
+            <form  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#update_3" asp-controller="SuperAdmin" method="post" asp-action="ChangePassword2" >
+
+    <div class="row mb-3">
+        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+        <div class="col-md-8 col-lg-9">
+            <input asp-for="user_password" type="password" class="form-control mypas" >
+            @*@Html.EditorFor(model => model.user_password, new { htmlAttributes = new { @class = "form-control yourPas", @id = "yourPassword", @type = "password", @name = "password" } })*@
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+        <div class="col-md-8 col-lg-9">
+             <input asp-for="user_confirmPassword" type="password" class="form-control mypas" >
+            @*@Html.EditorFor(model => model.user_confirm_password, new { htmlAttributes = new { @class = "form-control yourPas", @id = "yourPassword", @type = "password", @name = "password" } })*@
+        </div>
+    </div>
+     
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </div>
+
+
+</form>
+
+<div id="update_3"></div>
+ 
+ 

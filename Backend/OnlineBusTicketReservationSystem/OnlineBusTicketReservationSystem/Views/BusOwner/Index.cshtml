@@ -1,0 +1,79 @@
+﻿ @model IEnumerable<tbl_bus>
+@{
+    Layout = "~/Views/Shared/_BusOwnerLayout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item">Available Buses</li>
+
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">  
+   
+      @foreach (tbl_bus i in Model)
+     {
+        <div class="card" style="width: 20rem;">
+            <img height="2" class="card-img-top img-fluid" src="~/assets/img/p1.png" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                   
+
+                        <div class="col-sm-12 fs-14 usr_email">
+                            <img src="~/assets/img/busicon.png" height="18" style="margin-left:-2px !important;" /> Bus Number:
+                            <span class="p-r-5 fr">@i.bus_NumberPlate</span>
+                        </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 fs-14">
+                            <img src="~/assets/img/p6.png" height="18" style="margin-left:-2px !important;" /> Organization Name: @i.bus_OrganizationName
+                        
+                        </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 fs-14 org_name">
+                            <i class="bi bi-smartwatch" style="font-size: 13px;"></i> Departure: @i.bus_startingTime
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-sm-12 fs-14 nmbr_plate">
+                            <i class="fa fa-road"></i> Route: @i.bus_destination
+ 
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-sm-12 fs-14 aaa">
+                            <img src="~/assets/img/seat.png" height="18" style="margin-left:-2px !important;" /> Total Seat #: @i.bus_noOfSeats
+                           
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-sm-12 fs-14 bbb">
+                            <i class="bi bi-cash"></i> Fare: @i.bus_ticketPrice  <span class="text-success">Rs.</span> 
+                        </div>
+                        </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12 fs-14 ccc">
+                            <i class="bi bi-stack"></i> Bus Category: @i.bus_category 
+                        </div>
+                     
+                    </div>
+
+
+                </p>
+            </div>
+        </div>
+     }
+
+</section>
+ 
